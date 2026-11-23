@@ -1,0 +1,15 @@
+PREFIX facepe: <http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe#>
+
+# Catálogo: cada edital com o título, o programa a que pertence e o estágio de maturidade do
+# programa (vazio nos programas sem estágio). Todos os programas da base, dentro e fora da esteira.
+SELECT ?programa ?estagio ?edital ?titulo
+WHERE {
+	?editalInd a facepe:Edital ;
+		facepe:id_edital ?edital ;
+		facepe:nm_edital ?titulo ;
+		facepe:vinculado_a_programa ?programaInd .
+
+	?programaInd facepe:nm_programa_cti ?programa .
+	OPTIONAL { ?programaInd facepe:pertence_ao_estagio/facepe:nm_estagio ?estagio }
+}
+ORDER BY ?programa ?edital

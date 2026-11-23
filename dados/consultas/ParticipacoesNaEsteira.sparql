@@ -1,0 +1,32 @@
+PREFIX facepe: <http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe#>
+
+# Participações de pessoas e de empresas nos programas da esteira, com as datas do processo.
+# Uma linha por participante e processo: a pessoa que coordenou o projeto ou recebeu a bolsa, ou
+# a empresa que executou o projeto (executado_por). Orientações não contam.
+# Alimenta o mapa da esteira, os movimentos entre programas e a matriz de fluxos
+# (scrapper/figura_esteira.py) e a continuidade depois de cada programa
+# (scrapper/medir_continuidade.py): a ordem no tempo vem de dt_referencia, e o desempate entre
+# processos da mesma data é feito no script, pela ordem dos editais.
+# Só a esteira: o estágio "A classificar" não tem nr_ordem_estagio, então os programas fora das
+# três colunas do pôster ficam de fora pelo próprio padrão da consulta.
+SELECT ?participante ?tipo ?programa ?ordemEstagio ?edital ?dataReferencia ?inicio ?fim
+WHERE {
+	{
+		?pessoa facepe:id_pessoa ?participante ;
+			facepe:coordena|facepe:recebe ?processo .
+		BIND ("pessoa" AS ?tipo)
+	} UNION {
+		?processo facepe:executado_por ?empresa .
+		?empresa facepe:id_organizacao ?participante .
+		BIND ("empresa" AS ?tipo)
+	}
+	?processo facepe:submetido_a|facepe:concedida_em ?editalInd ;
+		facepe:dt_referencia ?dataReferencia .
+	OPTIONAL { ?processo facepe:dt_inicio ?inicio }
+	OPTIONAL { ?processo facepe:dt_fim ?fim }
+	?editalInd facepe:id_edital ?edital ;
+		facepe:vinculado_a_programa ?programaInd .
+	?programaInd facepe:nm_programa_cti ?programa ;
+		facepe:pertence_ao_estagio/facepe:nr_ordem_estagio ?ordemEstagio .
+}
+ORDER BY ?tipo ?participante ?dataReferencia ?edital

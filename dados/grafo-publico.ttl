@@ -1,0 +1,1645 @@
+@prefix edital: <http://gic.ufrpe.br/facepe-inovacao/description/facepe-pe#> .
+@prefix facepe: <http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+<http://purl.org/dc/elements/1.1/type> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/title> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/subject> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/source> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/rights> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/relation> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/publisher> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/language> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/identifier> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/hasVersion> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/format> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/description> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/date> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/creator> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/coverage> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1/contributor> a owl:AnnotationProperty .
+<http://purl.org/dc/elements/1.1> <http://purl.org/dc/elements/1.1/title> "DC" ;
+	<http://purl.org/dc/elements/1.1/rights> "Copyright 1995-2019 DCMI." ;
+	<http://purl.org/dc/elements/1.1/description> "The DC vocabulary is a subset of the vocabulary maintained by the Dublin Core Metadata Initiative." ;
+	<http://purl.org/dc/elements/1.1/creator> "DCMI Usage Board" ;
+	<http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Vocabulary> ;
+	<http://opencaesar.io/oml#prefix> "dc" ;
+	<http://opencaesar.io/oml#namespace> <http://purl.org/dc/elements/1.1/> ;
+	a owl:Ontology .
+facepe:Projeto <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Concept> .
+facepe:Programa_CTI <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Concept> .
+facepe:Processo <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Aspect> .
+facepe:Pessoa <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Aspect> .
+facepe:Participante <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Concept> .
+facepe:Orientador <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Aspect> .
+facepe:Organizacao <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Aspect> .
+facepe:ICT <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Concept> .
+facepe:Estagio_Maturidade <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Concept> .
+facepe:Empresa <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Concept> .
+facepe:Edital <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Concept> .
+facepe:Coordenador <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Aspect> .
+facepe:Bolsista <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Aspect> .
+facepe:Bolsa <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Concept> .
+facepe:vl_investimento rdfs:range xsd:decimal ;
+	rdfs:domain facepe:Edital .
+facepe:vl_fomento rdfs:range xsd:decimal ;
+	rdfs:domain facepe:Projeto .
+facepe:vl_area_prioritaria rdfs:range xsd:boolean ;
+	rdfs:domain facepe:Projeto .
+facepe:nr_ordem_estagio rdfs:range xsd:integer ;
+	rdfs:domain facepe:Estagio_Maturidade .
+facepe:nr_cpf rdfs:range xsd:string ;
+	rdfs:domain facepe:Pessoa .
+facepe:nr_alteracoes_cronograma rdfs:range xsd:integer ;
+	rdfs:domain facepe:Edital .
+facepe:nm_titulo_projeto rdfs:range xsd:string ;
+	rdfs:domain facepe:Projeto .
+facepe:nm_sigla_ict rdfs:range xsd:string ;
+	rdfs:domain facepe:ICT .
+facepe:nm_rde rdfs:range xsd:string ;
+	rdfs:domain facepe:Projeto .
+facepe:nm_programa_cti rdfs:range xsd:string ;
+	rdfs:domain facepe:Programa_CTI .
+facepe:nm_pessoa rdfs:range xsd:string ;
+	rdfs:domain facepe:Pessoa .
+facepe:nm_pais_nacionalidade rdfs:range xsd:string ;
+	rdfs:domain facepe:Pessoa .
+facepe:nm_organizacao rdfs:range xsd:string ;
+	rdfs:domain facepe:Organizacao .
+facepe:nm_nivel_bolsa rdfs:range xsd:string ;
+	rdfs:domain facepe:Bolsa .
+facepe:nm_maior_titulacao rdfs:range xsd:string ;
+	rdfs:domain facepe:Coordenador .
+facepe:nm_estagio rdfs:range xsd:string ;
+	rdfs:domain facepe:Estagio_Maturidade .
+facepe:nm_edital rdfs:range xsd:string ;
+	rdfs:domain facepe:Edital .
+facepe:nm_cidade_endereco rdfs:range xsd:string ;
+	rdfs:domain facepe:Pessoa .
+facepe:nm_area_conhecimento_facepe rdfs:range xsd:string ;
+	rdfs:domain facepe:Projeto .
+facepe:id_projeto rdfs:range xsd:string ;
+	rdfs:domain facepe:Projeto .
+facepe:id_programa_cti rdfs:range xsd:integer ;
+	rdfs:domain facepe:Programa_CTI .
+facepe:id_pessoa rdfs:range xsd:string ;
+	rdfs:domain facepe:Pessoa .
+facepe:id_organizacao rdfs:range xsd:string ;
+	rdfs:domain facepe:Organizacao .
+facepe:id_edital rdfs:range xsd:string ;
+	rdfs:domain facepe:Edital .
+facepe:id_bolsa rdfs:range xsd:string ;
+	rdfs:domain facepe:Bolsa .
+facepe:dt_resultado_publicado rdfs:range xsd:string ;
+	rdfs:domain facepe:Edital .
+facepe:dt_resultado_previsto rdfs:range xsd:string ;
+	rdfs:domain facepe:Edital .
+facepe:dt_relatorio_final rdfs:range xsd:string ;
+	rdfs:domain facepe:Processo .
+facepe:dt_referencia rdfs:range xsd:string ;
+	rdfs:domain facepe:Processo .
+facepe:dt_publicacao rdfs:range xsd:string ;
+	rdfs:domain facepe:Edital .
+facepe:dt_lancamento rdfs:range xsd:string ;
+	rdfs:domain facepe:Edital .
+facepe:dt_inicio rdfs:range xsd:string ;
+	rdfs:domain facepe:Processo .
+facepe:dt_fim_submissao_original rdfs:range xsd:string ;
+	rdfs:domain facepe:Edital .
+facepe:dt_fim_submissao rdfs:range xsd:string ;
+	rdfs:domain facepe:Edital .
+facepe:dt_fim rdfs:range xsd:string ;
+	rdfs:domain facepe:Processo .
+facepe:dt_cancelamento rdfs:range xsd:string ;
+	rdfs:domain facepe:Processo .
+facepe:ds_url_cv_lattes rdfs:range xsd:string ;
+	rdfs:domain facepe:Pessoa .
+facepe:ds_fonte rdfs:range xsd:string ;
+	rdfs:domain facepe:Processo .
+facepe:ds_estrutura_selecao rdfs:range xsd:string ;
+	rdfs:domain facepe:Edital .
+facepe:cd_modalidade rdfs:range xsd:string ;
+	rdfs:domain facepe:Processo .
+facepe:cd_ict_capes rdfs:range xsd:string ;
+	rdfs:domain facepe:ICT .
+facepe:cd_cat_bolsa_produtividade rdfs:range xsd:string ;
+	rdfs:domain facepe:Coordenador .
+facepe:ano_maior_titulacao rdfs:range xsd:integer ;
+	rdfs:domain facepe:Coordenador .
+facepe:an_nascimento rdfs:range xsd:integer ;
+	rdfs:domain facepe:Pessoa .
+facepe:vinculado_a_programa <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#UnreifiedRelation> ;
+	rdfs:range facepe:Programa_CTI ;
+	rdfs:domain facepe:Edital .
+facepe:vinculado_a_ict <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#UnreifiedRelation> ;
+	rdfs:range facepe:ICT ;
+	rdfs:domain facepe:Coordenador .
+facepe:vinculada_a_projeto <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#UnreifiedRelation> ;
+	rdfs:range facepe:Projeto ;
+	rdfs:domain facepe:Bolsa .
+facepe:submetido_a <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#UnreifiedRelation> ;
+	rdfs:range facepe:Edital ;
+	rdfs:domain facepe:Projeto .
+facepe:recebe <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#UnreifiedRelation> ;
+	rdfs:range facepe:Bolsa ;
+	rdfs:domain facepe:Bolsista .
+facepe:pertence_ao_estagio <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#UnreifiedRelation> ;
+	rdfs:range facepe:Estagio_Maturidade ;
+	rdfs:domain facepe:Programa_CTI .
+facepe:orienta_projeto <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#UnreifiedRelation> ;
+	rdfs:range facepe:Projeto ;
+	rdfs:domain facepe:Orientador .
+facepe:orienta_bolsa <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#UnreifiedRelation> ;
+	rdfs:range facepe:Bolsa ;
+	rdfs:domain facepe:Orientador .
+facepe:executado_por <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#UnreifiedRelation> ;
+	rdfs:range facepe:Empresa ;
+	rdfs:domain facepe:Projeto .
+facepe:coordena <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#UnreifiedRelation> ;
+	rdfs:range facepe:Projeto ;
+	rdfs:domain facepe:Coordenador .
+facepe:concedida_em <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#UnreifiedRelation> ;
+	rdfs:range facepe:Edital ;
+	rdfs:domain facepe:Bolsa .
+<http://opencaesar.io/oml#type> a owl:AnnotationProperty .
+<http://opencaesar.io/oml#prefix> a owl:AnnotationProperty .
+<http://opencaesar.io/oml#namespace> a owl:AnnotationProperty .
+<http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe> <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Vocabulary> ;
+	<http://opencaesar.io/oml#prefix> "facepe" ;
+	<http://opencaesar.io/oml#namespace> facepe: ;
+	a owl:Ontology .
+_:ae48ff2a80c441a550a5d94cc875aa3f rdf:first facepe:Projeto ;
+	rdf:rest rdf:nil .
+_:e1e427e85baa01ae743a9bcdb51d1278 rdf:first facepe:Programa_CTI ;
+	rdf:rest _:ae48ff2a80c441a550a5d94cc875aa3f .
+_:cf0edb652e610a3ebd002a7b84739526 rdf:first facepe:Participante ;
+	rdf:rest _:e1e427e85baa01ae743a9bcdb51d1278 .
+_:abeade9ab0e59562c6545ee780f47de4 rdf:first facepe:ICT ;
+	rdf:rest _:cf0edb652e610a3ebd002a7b84739526 .
+_:b3750c6a46d81d5aba3c2e020f8970b7 rdf:first facepe:Estagio_Maturidade ;
+	rdf:rest _:abeade9ab0e59562c6545ee780f47de4 .
+_:f7cd4bd216a8772a627877edbd1d02ef rdf:first facepe:Empresa ;
+	rdf:rest _:b3750c6a46d81d5aba3c2e020f8970b7 .
+_:c96bfc4379da5ffbe2eb207e5c5fdc6e rdf:first facepe:Edital ;
+	rdf:rest _:f7cd4bd216a8772a627877edbd1d02ef .
+_:b4f7dfb0b4ac60f299e3553f827f07a3 rdf:first facepe:Bolsa ;
+	rdf:rest _:c96bfc4379da5ffbe2eb207e5c5fdc6e .
+_:c52b0879d76aabcf0f7b10ee3a30c06e owl:members _:b4f7dfb0b4ac60f299e3553f827f07a3 ;
+	a owl:AllDisjointClasses .
+facepe:Projeto rdfs:subClassOf owl:Thing .
+facepe:Programa_CTI rdfs:subClassOf owl:Thing .
+facepe:Participante rdfs:subClassOf owl:Thing .
+facepe:ICT rdfs:subClassOf owl:Thing .
+facepe:Estagio_Maturidade rdfs:subClassOf owl:Thing .
+facepe:Empresa rdfs:subClassOf owl:Thing .
+facepe:Edital rdfs:subClassOf owl:Thing .
+facepe:Bolsa rdfs:subClassOf owl:Thing .
+<http://gic.ufrpe.br/facepe-inovacao/vocabulary/bundle> <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#VocabularyBundle> ;
+	<http://opencaesar.io/oml#prefix> "bundle" ;
+	<http://opencaesar.io/oml#namespace> <http://gic.ufrpe.br/facepe-inovacao/vocabulary/bundle#> ;
+	owl:imports <http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe> ;
+	a owl:Ontology .
+edital:programa-transforma-pe <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-transforma-mulher-pe <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-tecnova <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-sebrae-startups-ne <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-redes-de-inovacao <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-pro-startups-operacao <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-pro-startups-mulheres-que-inovam <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-pro-startups-incubadoras <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-pibiti-pe <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-pernambucanas-inovadoras <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-pepe <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-pbpg <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-pappe <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-locus-de-inovacao <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-jornada-repe <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-ipecti <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-inovacao-aberta <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-inova-c-a-t <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-global-pe <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-fronteiras-da-inovacao <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-espaco-cria <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-desafios-gov <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-compet-tracao <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-compet-superior <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-compet-solucoes <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-compet-residencia-tecnologica <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-compet-mulheres <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-compet-medio-tec <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-compet-competitividade-territorial <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-compet-ame <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-cientista-arretado <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-centelha <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:programa-bonus-tecnologico <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:estagio-operacao <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:estagio-ideacao <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:estagio-aceleracao <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:estagio-a-classificar <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-transforma-pe-23-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-transforma-mulher-pe-05-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-tecnova-24-2019 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-tecnova-23-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-tecnova-12-2014 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-sebrae-startups-ne-13-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-redes-de-inovacao-21-2023 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-redes-de-inovacao-04-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pro-startups-operacao-34-2022 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pro-startups-operacao-21-2021 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pro-startups-operacao-18-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pro-startups-mulheres-que-inovam-07-2026 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pro-startups-incubadoras-25-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pro-startups-incubadoras-23-2022 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pibiti-pe-20-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pernambucanas-inovadoras-12-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pernambucanas-inovadoras-09-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pernambucanas-inovadoras-06-2026 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pernambucanas-inovadoras-04-2023 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pepe-23-2014 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pepe-12-2019 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pepe-11-2016 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pepe-10-2020 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pepe-06-2022 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-35-2022 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-29-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-25-2017 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-24-2021 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-21-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-21-2018 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-20-2019 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-20-2010 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-19-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-18-2014 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-17-2022 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-17-2016 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-17-2015 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-17-2012 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-14-2023 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-14-2020 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-14-2013 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-13-2008 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-12-2009 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-11-2020 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-11-2019 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-11-2012 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-11-2011 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-09-2018 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-09-2017 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-08-2010 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-07-2021 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-07-2016 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-06-2023 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-06-2014 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-05-2015 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-05-2013 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-05-2011 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-05-2007 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-03-2009 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-03-2008 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pbpg-03-2006 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pappe-17-2010 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pappe-15-2015 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pappe-14-2017 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pappe-10-2012 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pappe-08-2016 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-pappe-05-2018 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-locus-de-inovacao-02-2022 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-jornada-repe-26-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-ipecti-29-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-ipecti-28-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-ipecti-20-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-ipecti-16-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-inovacao-aberta-33-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-inovacao-aberta-23-2026 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-global-pe-29-2026 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-global-pe-26-2026 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-global-pe-22-2026 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-global-pe-05-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-fronteiras-da-inovacao-11-2022 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-espaco-cria-25-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-espaco-cria-19-2026 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-espaco-cria-11-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-desafios-gov-34-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-desafios-gov-13-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-desafios-gov-10-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-compet-superior-33-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-compet-superior-14-2026 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-compet-solucoes-42-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-compet-solucoes-37-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-compet-solucoes-20-2023 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-compet-residencia-tecnologica-13-2021 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-compet-residencia-tecnologica-07-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-compet-residencia-tecnologica-06-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-compet-mulheres-08-2026 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-compet-medio-tec-19-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-compet-medio-tec-17-2026 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-compet-medio-tec-04-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-compet-competitividade-territorial-33-2022 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-compet-ame-08-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-cientista-arretado-40-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-cientista-arretado-14-2024 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-centelha-32-2025 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-centelha-28-2021 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-centelha-08-2019 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-bonus-tecnologico-20-2022 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+edital:edital-bonus-tecnologico-14-2021 <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#ConceptInstance> ;
+	a owl:NamedIndividual .
+<http://gic.ufrpe.br/facepe-inovacao/description/facepe-pe> <http://purl.org/dc/elements/1.1/description> "Programas de inovação da FACEPE, seus editais, projetos, bolsas e pessoas, a partir do Planilhão FACEPE (AgilFAP) e dos resultados publicados em PDF (ver scrapper/gerar_description.py)" ;
+	<http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Description> ;
+	<http://opencaesar.io/oml#prefix> "facepe-pe" ;
+	<http://opencaesar.io/oml#namespace> edital: ;
+	owl:imports <http://purl.org/dc/elements/1.1> , <http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe> ;
+	a owl:Ontology .
+<http://gic.ufrpe.br/facepe-inovacao/description/bundle> <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#DescriptionBundle> ;
+	<http://opencaesar.io/oml#prefix> "bundle" ;
+	<http://opencaesar.io/oml#namespace> <http://gic.ufrpe.br/facepe-inovacao/description/bundle#> ;
+	owl:imports <http://gic.ufrpe.br/facepe-inovacao/vocabulary/bundle> , <http://gic.ufrpe.br/facepe-inovacao/description/facepe-pe> ;
+	a owl:Ontology .
+facepe:nm_maior_titulacao rdfs:subPropertyOf facepe:nm_maior_titulacao .
+facepe:coordena rdfs:subPropertyOf facepe:coordena .
+facepe:vinculado_a_programa rdfs:subPropertyOf facepe:vinculado_a_programa .
+facepe:executado_por rdfs:subPropertyOf facepe:executado_por .
+facepe:nr_ordem_estagio rdfs:subPropertyOf facepe:nr_ordem_estagio .
+<http://gic.ufrpe.br/facepe-inovacao/description/bundle/properties> owl:versionInfo "1795441948" ;
+	owl:imports <http://gic.ufrpe.br/facepe-inovacao/description/bundle> ;
+	rdfs:comment "Generated by Owl Reason 2.15.0" ;
+	a owl:Ontology .
+facepe:orienta_projeto rdfs:subPropertyOf facepe:orienta_projeto .
+facepe:nm_area_conhecimento_facepe rdfs:subPropertyOf facepe:nm_area_conhecimento_facepe .
+facepe:dt_cancelamento rdfs:subPropertyOf facepe:dt_cancelamento .
+facepe:dt_resultado_previsto rdfs:subPropertyOf facepe:dt_resultado_previsto .
+facepe:pertence_ao_estagio rdfs:subPropertyOf facepe:pertence_ao_estagio .
+facepe:nm_cidade_endereco rdfs:subPropertyOf facepe:nm_cidade_endereco .
+facepe:nm_sigla_ict rdfs:subPropertyOf facepe:nm_sigla_ict .
+facepe:recebe rdfs:subPropertyOf facepe:recebe .
+facepe:vinculada_a_projeto rdfs:subPropertyOf facepe:vinculada_a_projeto .
+facepe:id_bolsa rdfs:subPropertyOf facepe:id_bolsa .
+owl:topObjectProperty owl:inverseOf owl:topObjectProperty .
+facepe:ds_fonte rdfs:subPropertyOf facepe:ds_fonte .
+facepe:dt_relatorio_final rdfs:subPropertyOf facepe:dt_relatorio_final .
+facepe:cd_modalidade rdfs:subPropertyOf facepe:cd_modalidade .
+facepe:concedida_em rdfs:subPropertyOf facepe:concedida_em .
+facepe:id_edital rdfs:subPropertyOf facepe:id_edital .
+facepe:dt_lancamento rdfs:subPropertyOf facepe:dt_lancamento .
+facepe:nm_nivel_bolsa rdfs:subPropertyOf facepe:nm_nivel_bolsa .
+facepe:ds_estrutura_selecao rdfs:subPropertyOf facepe:ds_estrutura_selecao .
+facepe:nr_alteracoes_cronograma rdfs:subPropertyOf facepe:nr_alteracoes_cronograma .
+facepe:ano_maior_titulacao rdfs:subPropertyOf facepe:ano_maior_titulacao .
+facepe:nm_pais_nacionalidade rdfs:subPropertyOf facepe:nm_pais_nacionalidade .
+facepe:vl_fomento rdfs:subPropertyOf facepe:vl_fomento .
+facepe:nr_cpf rdfs:subPropertyOf facepe:nr_cpf .
+facepe:id_projeto rdfs:subPropertyOf facepe:id_projeto .
+facepe:cd_ict_capes rdfs:subPropertyOf facepe:cd_ict_capes .
+facepe:nm_pessoa rdfs:subPropertyOf facepe:nm_pessoa .
+facepe:dt_publicacao rdfs:subPropertyOf facepe:dt_publicacao .
+facepe:dt_fim rdfs:subPropertyOf facepe:dt_fim .
+facepe:dt_resultado_publicado rdfs:subPropertyOf facepe:dt_resultado_publicado .
+facepe:nm_rde rdfs:subPropertyOf facepe:nm_rde .
+facepe:dt_referencia rdfs:subPropertyOf facepe:dt_referencia .
+facepe:dt_fim_submissao_original rdfs:subPropertyOf facepe:dt_fim_submissao_original .
+facepe:nm_titulo_projeto rdfs:subPropertyOf facepe:nm_titulo_projeto .
+facepe:submetido_a rdfs:subPropertyOf facepe:submetido_a .
+facepe:nm_programa_cti rdfs:subPropertyOf facepe:nm_programa_cti .
+facepe:dt_inicio rdfs:subPropertyOf facepe:dt_inicio .
+facepe:cd_cat_bolsa_produtividade rdfs:subPropertyOf facepe:cd_cat_bolsa_produtividade .
+facepe:id_pessoa rdfs:subPropertyOf facepe:id_pessoa .
+facepe:nm_estagio rdfs:subPropertyOf facepe:nm_estagio .
+facepe:an_nascimento rdfs:subPropertyOf facepe:an_nascimento .
+facepe:dt_fim_submissao rdfs:subPropertyOf facepe:dt_fim_submissao .
+facepe:vl_investimento rdfs:subPropertyOf facepe:vl_investimento .
+facepe:nm_organizacao rdfs:subPropertyOf facepe:nm_organizacao .
+facepe:ds_url_cv_lattes rdfs:subPropertyOf facepe:ds_url_cv_lattes .
+facepe:orienta_bolsa rdfs:subPropertyOf facepe:orienta_bolsa .
+facepe:id_organizacao rdfs:subPropertyOf facepe:id_organizacao .
+facepe:nm_edital rdfs:subPropertyOf facepe:nm_edital .
+facepe:id_programa_cti rdfs:subPropertyOf facepe:id_programa_cti .
+facepe:vl_area_prioritaria rdfs:subPropertyOf facepe:vl_area_prioritaria .
+facepe:vinculado_a_ict rdfs:subPropertyOf facepe:vinculado_a_ict .
+edital:edital-jornada-repe-26-2024 owl:sameAs edital:edital-jornada-repe-26-2024 ;
+	facepe:vinculado_a_programa edital:programa-jornada-repe ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Jornada REPE: Rede de Ecossistemas de Pernambuco – Resultado Final" ;
+	facepe:id_edital "26/2024" ;
+	facepe:dt_resultado_publicado "2025-01-14" ;
+	facepe:dt_resultado_previsto "2024-12-23" ;
+	facepe:dt_publicacao "14 de janeiro de 2025" ;
+	facepe:dt_lancamento "2024-09-30" ;
+	facepe:dt_fim_submissao "2024-11-25" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-pro-startups-operacao owl:sameAs edital:programa-pro-startups-operacao ;
+	facepe:pertence_ao_estagio edital:estagio-operacao ;
+	facepe:nm_programa_cti "Pró-Startups Operação" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-pbpg-14-2023 owl:sameAs edital:edital-pbpg-14-2023 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2024.1" ;
+	facepe:id_edital "14/2023" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-21-2018 owl:sameAs edital:edital-pbpg-21-2018 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2019.1" ;
+	facepe:id_edital "21/2018" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-17-2016 owl:sameAs edital:edital-pbpg-17-2016 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2017.1" ;
+	facepe:id_edital "17/2016" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-compet-medio-tec-17-2026 owl:sameAs edital:edital-compet-medio-tec-17-2026 ;
+	facepe:vinculado_a_programa edital:programa-compet-medio-tec ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Resultado Compet Médio-Tec: Habilidades de Futuro para o Ensino Médio e Técnico (edital nº 17/2026)" ;
+	facepe:id_edital "17/2026" ;
+	facepe:dt_resultado_previsto "2026-07-10" ;
+	facepe:dt_publicacao "15 de julho de 2026" ;
+	facepe:dt_lancamento "2026-05-29" ;
+	facepe:dt_fim_submissao "2026-06-19" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-compet-ame-08-2024 owl:sameAs edital:edital-compet-ame-08-2024 ;
+	facepe:vinculado_a_programa edital:programa-compet-ame ;
+	facepe:nm_edital "Resultado Final do Edital nº 08/2024-Facepe – Compet AME: Acelerando Mulheres Empreendedoras" ;
+	facepe:id_edital "08/2024" ;
+	facepe:dt_publicacao "22 de julho de 2024" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-18-2014 owl:sameAs edital:edital-pbpg-18-2014 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2015.1" ;
+	facepe:id_edital "18/2014" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-09-2017 owl:sameAs edital:edital-pbpg-09-2017 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2017.2" ;
+	facepe:id_edital "09/2017" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-compet-superior owl:sameAs edital:programa-compet-superior ;
+	facepe:pertence_ao_estagio edital:estagio-ideacao ;
+	facepe:nm_programa_cti "COMPET Superior" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:programa-transforma-pe owl:sameAs edital:programa-transforma-pe ;
+	facepe:pertence_ao_estagio edital:estagio-aceleracao ;
+	facepe:nm_programa_cti "Transforma PE" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-compet-residencia-tecnologica-06-2025 owl:sameAs edital:edital-compet-residencia-tecnologica-06-2025 ;
+	facepe:vinculado_a_programa edital:programa-compet-residencia-tecnologica ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Compet Residência Tecnológica: publicada a homologação do resultado do Edital nº 06/2025" ;
+	facepe:id_edital "06/2025" ;
+	facepe:dt_resultado_previsto "2025-06-16" ;
+	facepe:dt_publicacao "23 de julho de 2025" ;
+	facepe:dt_lancamento "2025-03-20" ;
+	facepe:dt_fim_submissao "2025-05-19" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a facepe:Edital , owl:Thing .
+edital:programa-pbpg owl:sameAs edital:programa-pbpg ;
+	facepe:nm_programa_cti "PBPG" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-compet-solucoes-37-2024 owl:sameAs edital:edital-compet-solucoes-37-2024 ;
+	facepe:vinculado_a_programa edital:programa-compet-solucoes ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Compet Soluções – Resultado Final" ;
+	facepe:id_edital "37/2024" ;
+	facepe:dt_resultado_publicado "2025-03-14" ;
+	facepe:dt_resultado_previsto "2025-02-24" ;
+	facepe:dt_publicacao "14 de março de 2025" ;
+	facepe:dt_lancamento "2024-11-28" ;
+	facepe:dt_fim_submissao "2025-01-20" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-11-2012 owl:sameAs edital:edital-pbpg-11-2012 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2012.2" ;
+	facepe:id_edital "11/2012" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pro-startups-operacao-21-2021 owl:sameAs edital:edital-pro-startups-operacao-21-2021 ;
+	facepe:vinculado_a_programa edital:programa-pro-startups-operacao ;
+	facepe:nr_alteracoes_cronograma 4 ;
+	facepe:nm_edital "Pró-Startups Operação – Resultado Final" ;
+	facepe:id_edital "21/2021" ;
+	facepe:dt_resultado_publicado "2022-09-16" ;
+	facepe:dt_resultado_previsto "2021-12-15" ;
+	facepe:dt_publicacao "17 de dezembro de 2021" ;
+	facepe:dt_lancamento "2021-10-18" ;
+	facepe:dt_fim_submissao_original "2021-11-19" ;
+	facepe:dt_fim_submissao "2021-11-26" ;
+	facepe:ds_estrutura_selecao "fases" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-inovacao-aberta owl:sameAs edital:programa-inovacao-aberta ;
+	facepe:pertence_ao_estagio edital:estagio-aceleracao ;
+	facepe:nm_programa_cti "Inovação Aberta" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-transforma-mulher-pe-05-2024 owl:sameAs edital:edital-transforma-mulher-pe-05-2024 ;
+	facepe:vinculado_a_programa edital:programa-transforma-mulher-pe ;
+	facepe:nm_edital "Resultado Final do Edital nº 05/2024-Facepe – Transforma Mulher-PE" ;
+	facepe:id_edital "05/2024" ;
+	facepe:dt_publicacao "12 de julho de 2024" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-14-2013 owl:sameAs edital:edital-pbpg-14-2013 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2014.1" ;
+	facepe:id_edital "14/2013" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-desafios-gov-34-2025 owl:sameAs edital:edital-desafios-gov-34-2025 ;
+	facepe:vinculado_a_programa edital:programa-desafios-gov ;
+	facepe:nr_alteracoes_cronograma 3 ;
+	facepe:nm_edital "Resultado do Edital 34/2025 – Desafios.GOV" ;
+	facepe:id_edital "34/2025" ;
+	facepe:dt_resultado_previsto "2025-11-21" ;
+	facepe:dt_publicacao "5 de dezembro de 2025" ;
+	facepe:dt_lancamento "2025-09-22" ;
+	facepe:dt_fim_submissao "2025-11-03" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pibiti-pe-20-2025 owl:sameAs edital:edital-pibiti-pe-20-2025 ;
+	facepe:vinculado_a_programa edital:programa-pibiti-pe ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "PIBITI-PE: publicada a homologação do resultado do Edital nº 20/2025" ;
+	facepe:id_edital "20/2025" ;
+	facepe:dt_resultado_previsto "2025-08-04" ;
+	facepe:dt_publicacao "4 de agosto de 2025" ;
+	facepe:dt_lancamento "2025-05-15" ;
+	facepe:dt_fim_submissao "2025-06-30" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a facepe:Edital , owl:Thing .
+edital:edital-pappe-08-2016 owl:sameAs edital:edital-pappe-08-2016 ;
+	facepe:vinculado_a_programa edital:programa-pappe ;
+	facepe:nm_edital "Resultado Final do Edital Pappe 6ª Rodada" ;
+	facepe:id_edital "08/2016" ;
+	facepe:dt_publicacao "24 de janeiro de 2017" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-17-2015 owl:sameAs edital:edital-pbpg-17-2015 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2016.1" ;
+	facepe:id_edital "17/2015" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-bonus-tecnologico-14-2021 owl:sameAs edital:edital-bonus-tecnologico-14-2021 ;
+	facepe:vinculado_a_programa edital:programa-bonus-tecnologico ;
+	facepe:nm_edital "Bônus Tecnológico para Micro, Pequenas e Médias Empresas Industriais de Pernambuco – RESULTADO" ;
+	facepe:id_edital "14/2021" ;
+	facepe:dt_publicacao "15 de outubro de 2021" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-centelha-08-2019 owl:sameAs edital:edital-centelha-08-2019 ;
+	facepe:vinculado_a_programa edital:programa-centelha ;
+	facepe:nr_alteracoes_cronograma 7 ;
+	facepe:nm_edital "CENTELHA-PE – Resultado Final após Contratação" ;
+	facepe:id_edital "08/2019" ;
+	facepe:dt_resultado_publicado "2020-04-30" ;
+	facepe:dt_resultado_previsto "2019-12-11" ;
+	facepe:dt_publicacao "22 de fevereiro de 2021" ;
+	facepe:dt_lancamento "2019-07-05" ;
+	facepe:dt_fim_submissao_original "2019-08-21" ;
+	facepe:dt_fim_submissao "2019-09-23" ;
+	facepe:ds_estrutura_selecao "fases" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-inova-c-a-t owl:sameAs edital:programa-inova-c-a-t ;
+	facepe:pertence_ao_estagio edital:estagio-a-classificar ;
+	facepe:nm_programa_cti "Inova C.A.T." ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-pappe-15-2015 owl:sameAs edital:edital-pappe-15-2015 ;
+	facepe:vinculado_a_programa edital:programa-pappe ;
+	facepe:nm_edital "PAPPE 5ª Rodada Resultado Final" ;
+	facepe:id_edital "15/2015" ;
+	facepe:dt_publicacao "18 de maio de 2016" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-compet-mulheres owl:sameAs edital:programa-compet-mulheres ;
+	facepe:pertence_ao_estagio edital:estagio-aceleracao ;
+	facepe:nm_programa_cti "COMPET Mulheres" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-pbpg-35-2022 owl:sameAs edital:edital-pbpg-35-2022 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2023.1" ;
+	facepe:id_edital "35/2022" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pernambucanas-inovadoras-09-2024 owl:sameAs edital:edital-pernambucanas-inovadoras-09-2024 ;
+	facepe:vinculado_a_programa edital:programa-pernambucanas-inovadoras ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Resultado Final Edital Nº 09/2024-Facepe Pernambucanas Inovadoras 2024" ;
+	facepe:id_edital "09/2024" ;
+	facepe:dt_resultado_publicado "2024-06-10" ;
+	facepe:dt_resultado_previsto "2024-06-26" ;
+	facepe:dt_publicacao "10 de junho de 2024" ;
+	facepe:dt_lancamento "2024-03-28" ;
+	facepe:dt_fim_submissao "2024-05-27" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-redes-de-inovacao-21-2023 owl:sameAs edital:edital-redes-de-inovacao-21-2023 ;
+	facepe:vinculado_a_programa edital:programa-redes-de-inovacao ;
+	facepe:nm_edital "Resultado Edital Nº 21/2023-Facepe Apoio às Redes de Inovação de Pernambuco" ;
+	facepe:id_edital "21/2023" ;
+	facepe:dt_publicacao "22 de março de 2024" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-compet-competitividade-territorial owl:sameAs edital:programa-compet-competitividade-territorial ;
+	facepe:pertence_ao_estagio edital:estagio-a-classificar ;
+	facepe:nm_programa_cti "COMPET (Competitividade Territorial)" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-locus-de-inovacao-02-2022 owl:sameAs edital:edital-locus-de-inovacao-02-2022 ;
+	facepe:vinculado_a_programa edital:programa-locus-de-inovacao ;
+	facepe:nm_edital "Credenciamento de Ambientes para Inovação em Pernambuco – Lócus de Inovação 2022 (dados do Planilhão FACEPE; sem resultado publicado)" ;
+	facepe:id_edital "02/2022" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-compet-mulheres-08-2026 owl:sameAs edital:edital-compet-mulheres-08-2026 ;
+	facepe:vinculado_a_programa edital:programa-compet-mulheres ;
+	facepe:nr_alteracoes_cronograma 1 ;
+	facepe:nm_edital "Resultado Final – Edital 08/2026 – COMPET Mulheres" ;
+	facepe:id_edital "08/2026" ;
+	facepe:dt_resultado_publicado "2026-08-18" ;
+	facepe:dt_resultado_previsto "2026-07-13" ;
+	facepe:dt_publicacao "18 de agosto de 2026" ;
+	facepe:dt_lancamento "2026-03-05" ;
+	facepe:dt_fim_submissao "2026-06-08" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-compet-residencia-tecnologica owl:sameAs edital:programa-compet-residencia-tecnologica ;
+	facepe:pertence_ao_estagio edital:estagio-ideacao ;
+	facepe:nm_programa_cti "COMPET Residência Tecnológica" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-global-pe-22-2026 owl:sameAs edital:edital-global-pe-22-2026 ;
+	facepe:vinculado_a_programa edital:programa-global-pe ;
+	facepe:nr_alteracoes_cronograma 1 ;
+	facepe:nm_edital "Resultado Final Edital 22/2026 (Global PE – Espanha)" ;
+	facepe:id_edital "22/2026" ;
+	facepe:dt_resultado_publicado "2026-08-20" ;
+	facepe:dt_resultado_previsto "2026-08-13" ;
+	facepe:dt_publicacao "20 de agosto de 2026" ;
+	facepe:dt_lancamento "2026-07-02" ;
+	facepe:dt_fim_submissao "2026-07-27" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-11-2011 owl:sameAs edital:edital-pbpg-11-2011 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2012.1" ;
+	facepe:id_edital "11/2011" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-25-2017 owl:sameAs edital:edital-pbpg-25-2017 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2018.1" ;
+	facepe:id_edital "25/2017" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-05-2007 owl:sameAs edital:edital-pbpg-05-2007 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2008.1" ;
+	facepe:id_edital "05/2007" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-desafios-gov-13-2024 owl:sameAs edital:edital-desafios-gov-13-2024 ;
+	facepe:vinculado_a_programa edital:programa-desafios-gov ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Desafios.GOV – Resultado Final" ;
+	facepe:id_edital "13/2024" ;
+	facepe:dt_resultado_publicado "2024-10-25" ;
+	facepe:dt_resultado_previsto "2024-10-14" ;
+	facepe:dt_publicacao "25 de outubro de 2024" ;
+	facepe:dt_lancamento "2024-07-07" ;
+	facepe:dt_fim_submissao "2024-09-09" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a facepe:Edital , owl:Thing .
+edital:programa-pro-startups-mulheres-que-inovam owl:sameAs edital:programa-pro-startups-mulheres-que-inovam ;
+	facepe:pertence_ao_estagio edital:estagio-operacao ;
+	facepe:nm_programa_cti "Pró-Startups Mulheres que Inovam" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:programa-compet-ame owl:sameAs edital:programa-compet-ame ;
+	facepe:pertence_ao_estagio edital:estagio-a-classificar ;
+	facepe:nm_programa_cti "COMPET AME" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-inovacao-aberta-23-2026 owl:sameAs edital:edital-inovacao-aberta-23-2026 ;
+	facepe:vinculado_a_programa edital:programa-inovacao-aberta ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Facepe divulga resultado final do Edital Inovação Aberta para Desafios Digitais (nº 23/2026)" ;
+	facepe:id_edital "23/2026" ;
+	facepe:dt_resultado_publicado "2026-10-29" ;
+	facepe:dt_resultado_previsto "2026-09-14" ;
+	facepe:dt_publicacao "22 de outubro de 2026" ;
+	facepe:dt_lancamento "2026-07-01" ;
+	facepe:dt_fim_submissao "2026-08-17" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a facepe:Edital , owl:Thing .
+edital:estagio-a-classificar owl:sameAs edital:estagio-a-classificar ;
+	facepe:nm_estagio "A classificar" ;
+	a owl:Thing , facepe:Estagio_Maturidade .
+edital:edital-pbpg-05-2011 owl:sameAs edital:edital-pbpg-05-2011 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2011.2" ;
+	facepe:id_edital "05/2011" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-03-2009 owl:sameAs edital:edital-pbpg-03-2009 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2009.2" ;
+	facepe:id_edital "03/2009" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-11-2020 owl:sameAs edital:edital-pbpg-11-2020 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2020.2" ;
+	facepe:id_edital "11/2020" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pepe-11-2016 owl:sameAs edital:edital-pepe-11-2016 ;
+	facepe:vinculado_a_programa edital:programa-pepe ;
+	facepe:nm_edital "PEPE Inova Talentos – Resultado Final" ;
+	facepe:id_edital "11/2016" ;
+	facepe:dt_publicacao "6 de janeiro de 2017" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-sebrae-startups-ne owl:sameAs edital:programa-sebrae-startups-ne ;
+	facepe:pertence_ao_estagio edital:estagio-a-classificar ;
+	facepe:nm_programa_cti "SEBRAE Startups NE" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:programa-cientista-arretado owl:sameAs edital:programa-cientista-arretado ;
+	facepe:pertence_ao_estagio edital:estagio-a-classificar ;
+	facepe:nm_programa_cti "Cientista Arretado" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-cientista-arretado-14-2024 owl:sameAs edital:edital-cientista-arretado-14-2024 ;
+	facepe:vinculado_a_programa edital:programa-cientista-arretado ;
+	facepe:nm_edital "Homologação de Resultado -10ª rodada do Programa Cientista Arretado -2ª fase – Adendo nº 10" ;
+	facepe:id_edital "14/2024" ;
+	facepe:dt_publicacao "23 de setembro de 2025" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-ipecti-16-2024 owl:sameAs edital:edital-ipecti-16-2024 ;
+	facepe:vinculado_a_programa edital:programa-ipecti ;
+	facepe:nm_edital "IPECTI Energias Renováveis e Descarbonização – Resultado Final" ;
+	facepe:id_edital "16/2024" ;
+	facepe:dt_publicacao "3 de outubro de 2024" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-transforma-pe-23-2025 owl:sameAs edital:edital-transforma-pe-23-2025 ;
+	facepe:vinculado_a_programa edital:programa-transforma-pe ;
+	facepe:nr_alteracoes_cronograma 2 ;
+	facepe:nm_edital "Resultado Final do Edital nº 23/2025 – Transforma PE (Adendo 02)" ;
+	facepe:id_edital "23/2025" ;
+	facepe:dt_resultado_publicado "2026-02-10" ;
+	facepe:dt_resultado_previsto "2025-10-31" ;
+	facepe:dt_publicacao "10 de fevereiro de 2026" ;
+	facepe:dt_lancamento "2025-05-28" ;
+	facepe:dt_fim_submissao "2025-09-22" ;
+	facepe:ds_estrutura_selecao "rodadas" ;
+	a facepe:Edital , owl:Thing .
+edital:edital-centelha-32-2025 owl:sameAs edital:edital-centelha-32-2025 ;
+	facepe:vinculado_a_programa edital:programa-centelha ;
+	facepe:nr_alteracoes_cronograma 12 ;
+	facepe:nm_edital "Resultado final do edital do Programa Centelha PE (edital 32/2025) Homologação de classificação na Fase 2" ;
+	facepe:id_edital "32/2025" ;
+	facepe:dt_resultado_publicado "2026-08-05" ;
+	facepe:dt_resultado_previsto "2026-08-07" ;
+	facepe:dt_publicacao "5 de agosto de 2026" ;
+	facepe:dt_lancamento "2025-10-30" ;
+	facepe:dt_fim_submissao "2026-01-20" ;
+	facepe:ds_estrutura_selecao "fases" ;
+	a facepe:Edital , owl:Thing .
+edital:programa-pro-startups-incubadoras owl:sameAs edital:programa-pro-startups-incubadoras ;
+	facepe:pertence_ao_estagio edital:estagio-a-classificar ;
+	facepe:nm_programa_cti "Pró-Startups Incubadoras" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-pepe-23-2014 owl:sameAs edital:edital-pepe-23-2014 ;
+	facepe:vinculado_a_programa edital:programa-pepe ;
+	facepe:nm_edital "PEPE 3ª Rodada – Resultado" ;
+	facepe:id_edital "23/2014" ;
+	facepe:dt_publicacao "27 de maio de 2016" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-sebrae-startups-ne-13-2025 owl:sameAs edital:edital-sebrae-startups-ne-13-2025 ;
+	facepe:vinculado_a_programa edital:programa-sebrae-startups-ne ;
+	facepe:nm_edital "SEBRAE STARTUPS NE (dados do Planilhão FACEPE; sem resultado publicado)" ;
+	facepe:id_edital "13/2025" ;
+	a owl:Thing , facepe:Edital .
+<http://gic.ufrpe.br/facepe-inovacao/description/bundle/individuals> owl:versionInfo "1795441949" ;
+	owl:imports <http://gic.ufrpe.br/facepe-inovacao/description/bundle> ;
+	rdfs:comment "Generated by Owl Reason 2.15.0" ;
+	a owl:Ontology .
+edital:edital-global-pe-26-2026 owl:sameAs edital:edital-global-pe-26-2026 ;
+	facepe:vinculado_a_programa edital:programa-global-pe ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Resultado Final do Edital nº26/2026 Global PE Portugal" ;
+	facepe:id_edital "26/2026" ;
+	facepe:dt_resultado_publicado "2026-10-07" ;
+	facepe:dt_resultado_previsto "2026-10-05" ;
+	facepe:dt_publicacao "7 de outubro de 2026" ;
+	facepe:dt_lancamento "2026-08-25" ;
+	facepe:dt_fim_submissao "2026-09-16" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a facepe:Edital , owl:Thing .
+edital:edital-tecnova-24-2019 owl:sameAs edital:edital-tecnova-24-2019 ;
+	facepe:vinculado_a_programa edital:programa-tecnova ;
+	facepe:nr_alteracoes_cronograma 1 ;
+	facepe:nm_edital "TECNOVA 2 – Resultado Final" ;
+	facepe:id_edital "24/2019" ;
+	facepe:dt_resultado_publicado "2020-10-01" ;
+	facepe:dt_resultado_previsto "2020-08-01" ;
+	facepe:dt_publicacao "1 de outubro de 2020" ;
+	facepe:dt_lancamento "2019-12-03" ;
+	facepe:dt_fim_submissao_original "2020-01-25" ;
+	facepe:dt_fim_submissao "2020-02-27" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-06-2014 owl:sameAs edital:edital-pbpg-06-2014 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2014.2" ;
+	facepe:id_edital "06/2014" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-21-2025 owl:sameAs edital:edital-pbpg-21-2025 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2025.2" ;
+	facepe:id_edital "21/2025" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pro-startups-operacao-34-2022 owl:sameAs edital:edital-pro-startups-operacao-34-2022 ;
+	facepe:vinculado_a_programa edital:programa-pro-startups-operacao ;
+	facepe:nr_alteracoes_cronograma 1 ;
+	facepe:nm_edital "Edital FACEPE 34/2022 Pró-startup Operação – Resultado final da 4ª Rodada" ;
+	facepe:id_edital "34/2022" ;
+	facepe:dt_resultado_publicado "2023-07-28" ;
+	facepe:dt_resultado_previsto "2022-11-20" ;
+	facepe:dt_publicacao "28 de julho de 2023" ;
+	facepe:dt_lancamento "2022-10-03" ;
+	facepe:dt_fim_submissao "2022-10-31" ;
+	facepe:ds_estrutura_selecao "fluxo contínuo" ;
+	a facepe:Edital , owl:Thing .
+edital:edital-pepe-12-2019 owl:sameAs edital:edital-pepe-12-2019 ;
+	facepe:vinculado_a_programa edital:programa-pepe ;
+	facepe:nm_edital "FACEPE divulga resultado do edital 12-2019 PEPE" ;
+	facepe:id_edital "12/2019" ;
+	facepe:dt_publicacao "31 de outubro de 2019" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-global-pe owl:sameAs edital:programa-global-pe ;
+	facepe:pertence_ao_estagio edital:estagio-aceleracao ;
+	facepe:nm_programa_cti "Global.PE" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-pbpg-24-2021 owl:sameAs edital:edital-pbpg-24-2021 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2022.1" ;
+	facepe:id_edital "24/2021" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-compet-tracao owl:sameAs edital:programa-compet-tracao ;
+	facepe:pertence_ao_estagio edital:estagio-aceleracao ;
+	facepe:nm_programa_cti "COMPET Tração" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:programa-redes-de-inovacao owl:sameAs edital:programa-redes-de-inovacao ;
+	facepe:pertence_ao_estagio edital:estagio-a-classificar ;
+	facepe:nm_programa_cti "Redes de Inovação" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-cientista-arretado-40-2024 owl:sameAs edital:edital-cientista-arretado-40-2024 ;
+	facepe:vinculado_a_programa edital:programa-cientista-arretado ;
+	facepe:nm_edital "Resultado Final da 2ª Fase da 21ª Rodada do Programa Cientista Arretado (Balanço Energético Estadual)" ;
+	facepe:id_edital "40/2024" ;
+	facepe:dt_publicacao "22 de julho de 2026" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-pappe owl:sameAs edital:programa-pappe ;
+	facepe:pertence_ao_estagio edital:estagio-a-classificar ;
+	facepe:nm_programa_cti "PAPPE" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-ipecti-29-2025 owl:sameAs edital:edital-ipecti-29-2025 ;
+	facepe:vinculado_a_programa edital:programa-ipecti ;
+	facepe:nm_edital "Homologação de Resultado IPECTI: Neurodiversidade na Infância e Juventude" ;
+	facepe:id_edital "29/2025" ;
+	facepe:dt_publicacao "9 de outubro de 2025" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-06-2023 owl:sameAs edital:edital-pbpg-06-2023 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2023.2" ;
+	facepe:id_edital "06/2023" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-compet-residencia-tecnologica-13-2021 owl:sameAs edital:edital-compet-residencia-tecnologica-13-2021 ;
+	facepe:vinculado_a_programa edital:programa-compet-residencia-tecnologica ;
+	facepe:nr_alteracoes_cronograma 1 ;
+	facepe:nm_edital "Residência Tecnológica – RESITEC – Resultado da Segunda Rodada" ;
+	facepe:id_edital "13/2021" ;
+	facepe:dt_publicacao "28 de fevereiro de 2022" ;
+	facepe:dt_lancamento "2021-06-25" ;
+	facepe:dt_fim_submissao "2022-12-31" ;
+	facepe:ds_estrutura_selecao "fluxo contínuo" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-jornada-repe owl:sameAs edital:programa-jornada-repe ;
+	facepe:pertence_ao_estagio edital:estagio-ideacao ;
+	facepe:nm_programa_cti "Jornada REPE" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-pepe-10-2020 owl:sameAs edital:edital-pepe-10-2020 ;
+	facepe:vinculado_a_programa edital:programa-pepe ;
+	facepe:nm_edital "PEPE 2020 – Resultado Final após Recursos" ;
+	facepe:id_edital "10/2020" ;
+	facepe:dt_publicacao "10 de março de 2021" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-transforma-mulher-pe owl:sameAs edital:programa-transforma-mulher-pe ;
+	facepe:pertence_ao_estagio edital:estagio-a-classificar ;
+	facepe:nm_programa_cti "Transforma Mulher-PE" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-compet-competitividade-territorial-33-2022 owl:sameAs edital:edital-compet-competitividade-territorial-33-2022 ;
+	facepe:vinculado_a_programa edital:programa-compet-competitividade-territorial ;
+	facepe:nm_edital "Resultado Final do Programa de Competitividade Territorial – Compet (Edital 33/2022 )" ;
+	facepe:id_edital "33/2022" ;
+	facepe:dt_publicacao "26 de dezembro de 2022" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-12-2009 owl:sameAs edital:edital-pbpg-12-2009 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2010.1" ;
+	facepe:id_edital "12/2009" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-locus-de-inovacao owl:sameAs edital:programa-locus-de-inovacao ;
+	facepe:pertence_ao_estagio edital:estagio-a-classificar ;
+	facepe:nm_programa_cti "Lócus de Inovação" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-espaco-cria-19-2026 owl:sameAs edital:edital-espaco-cria-19-2026 ;
+	facepe:vinculado_a_programa edital:programa-espaco-cria ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Resultado final do Edital de Apoio aos Espaços Cria  (nº 19/2026)" ;
+	facepe:id_edital "19/2026" ;
+	facepe:dt_resultado_publicado "2026-07-21" ;
+	facepe:dt_resultado_previsto "2026-07-16" ;
+	facepe:dt_publicacao "21 de julho de 2026" ;
+	facepe:dt_lancamento "2026-06-08" ;
+	facepe:dt_fim_submissao "2026-06-29" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a facepe:Edital , owl:Thing .
+edital:edital-pappe-05-2018 owl:sameAs edital:edital-pappe-05-2018 ;
+	facepe:vinculado_a_programa edital:programa-pappe ;
+	facepe:nm_edital "PAPPE 8 – Resultado Final após Recursos" ;
+	facepe:id_edital "05/2018" ;
+	facepe:dt_publicacao "18 de outubro de 2018" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-03-2008 owl:sameAs edital:edital-pbpg-03-2008 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2008.2" ;
+	facepe:id_edital "03/2008" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-05-2015 owl:sameAs edital:edital-pbpg-05-2015 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2015.2" ;
+	facepe:id_edital "05/2015" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pro-startups-mulheres-que-inovam-07-2026 owl:sameAs edital:edital-pro-startups-mulheres-que-inovam-07-2026 ;
+	facepe:vinculado_a_programa edital:programa-pro-startups-mulheres-que-inovam ;
+	facepe:nr_alteracoes_cronograma 1 ;
+	facepe:nm_edital "Resultado Final – Pró-Startups: Mulheres que Inovam (Fase 1)" ;
+	facepe:id_edital "07/2026" ;
+	facepe:dt_resultado_publicado "2026-07-20" ;
+	facepe:dt_publicacao "20 de julho de 2026" ;
+	facepe:dt_lancamento "2026-03-05" ;
+	facepe:dt_fim_submissao_original "2026-04-27" ;
+	facepe:dt_fim_submissao "2026-06-01" ;
+	facepe:ds_estrutura_selecao "fases" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-global-pe-05-2025 owl:sameAs edital:edital-global-pe-05-2025 ;
+	facepe:vinculado_a_programa edital:programa-global-pe ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Global PE –  Resultado Final" ;
+	facepe:id_edital "05/2025" ;
+	facepe:dt_resultado_publicado "2025-03-17" ;
+	facepe:dt_resultado_previsto "2025-03-07" ;
+	facepe:dt_publicacao "17 de março de 2025" ;
+	facepe:dt_lancamento "2025-01-22" ;
+	facepe:dt_fim_submissao "2025-02-17" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-14-2020 owl:sameAs edital:edital-pbpg-14-2020 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2021.1" ;
+	facepe:id_edital "14/2020" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pro-startups-operacao-18-2025 owl:sameAs edital:edital-pro-startups-operacao-18-2025 ;
+	facepe:vinculado_a_programa edital:programa-pro-startups-operacao ;
+	facepe:nr_alteracoes_cronograma 2 ;
+	facepe:nm_edital "Resultado final da 2ª fase  Pró-Startups Operação" ;
+	facepe:id_edital "18/2025" ;
+	facepe:dt_resultado_publicado "2026-03-23" ;
+	facepe:dt_resultado_previsto "2025-07-14" ;
+	facepe:dt_publicacao "23 de março de 2026" ;
+	facepe:dt_lancamento "2025-04-29" ;
+	facepe:dt_fim_submissao "2025-06-09" ;
+	facepe:ds_estrutura_selecao "fases" ;
+	a facepe:Edital , owl:Thing .
+edital:edital-tecnova-23-2024 owl:sameAs edital:edital-tecnova-23-2024 ;
+	facepe:vinculado_a_programa edital:programa-tecnova ;
+	facepe:nr_alteracoes_cronograma 1 ;
+	facepe:nm_edital "Tecnova III – Resultado Final da Etapa II de Julgamento – Avaliação de Mérito" ;
+	facepe:id_edital "23/2024" ;
+	facepe:dt_resultado_publicado "2024-12-13" ;
+	facepe:dt_resultado_previsto "2024-11-28" ;
+	facepe:dt_publicacao "13 de dezembro de 2024" ;
+	facepe:dt_lancamento "2024-07-11" ;
+	facepe:dt_fim_submissao_original "2024-09-11" ;
+	facepe:dt_fim_submissao "2024-10-11" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-inovacao-aberta-33-2025 owl:sameAs edital:edital-inovacao-aberta-33-2025 ;
+	facepe:vinculado_a_programa edital:programa-inovacao-aberta ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Resultado Final do Edital nº 33/2025 – Inovação Aberta para Desafios Sociais" ;
+	facepe:id_edital "33/2025" ;
+	facepe:dt_resultado_publicado "2026-02-02" ;
+	facepe:dt_resultado_previsto "2026-01-28" ;
+	facepe:dt_publicacao "2 de fevereiro de 2026" ;
+	facepe:dt_lancamento "2025-09-22" ;
+	facepe:dt_fim_submissao "2025-12-22" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a facepe:Edital , owl:Thing .
+edital:edital-pernambucanas-inovadoras-06-2026 owl:sameAs edital:edital-pernambucanas-inovadoras-06-2026 ;
+	facepe:vinculado_a_programa edital:programa-pernambucanas-inovadoras ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Resultado final do edital Pernambucanas Inovadoras (nº 06/2026)" ;
+	facepe:id_edital "06/2026" ;
+	facepe:dt_resultado_publicado "2026-07-03" ;
+	facepe:dt_resultado_previsto "2026-06-15" ;
+	facepe:dt_publicacao "3 de julho de 2026" ;
+	facepe:dt_lancamento "2026-03-05" ;
+	facepe:dt_fim_submissao "2026-05-11" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-13-2008 owl:sameAs edital:edital-pbpg-13-2008 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2009.1" ;
+	facepe:id_edital "13/2008" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-17-2022 owl:sameAs edital:edital-pbpg-17-2022 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2022.2" ;
+	facepe:id_edital "17/2022" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pernambucanas-inovadoras-04-2023 owl:sameAs edital:edital-pernambucanas-inovadoras-04-2023 ;
+	facepe:vinculado_a_programa edital:programa-pernambucanas-inovadoras ;
+	facepe:nr_alteracoes_cronograma 1 ;
+	facepe:nm_edital "Resultado Final  do Edital n° 04/2023 – Pernambucanas Inovadoras 2023" ;
+	facepe:id_edital "04/2023" ;
+	facepe:dt_resultado_publicado "2023-08-10" ;
+	facepe:dt_publicacao "10 de agosto de 2023" ;
+	facepe:dt_lancamento "2023-04-26" ;
+	facepe:dt_fim_submissao "2023-06-30" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a facepe:Edital , owl:Thing .
+edital:programa-bonus-tecnologico owl:sameAs edital:programa-bonus-tecnologico ;
+	facepe:pertence_ao_estagio edital:estagio-a-classificar ;
+	facepe:nm_programa_cti "Bônus Tecnológico" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:estagio-aceleracao owl:sameAs edital:estagio-aceleracao ;
+	facepe:nr_ordem_estagio 3 ;
+	facepe:nm_estagio "Aceleração" ;
+	a owl:Thing , facepe:Estagio_Maturidade .
+edital:programa-compet-medio-tec owl:sameAs edital:programa-compet-medio-tec ;
+	facepe:pertence_ao_estagio edital:estagio-ideacao ;
+	facepe:nm_programa_cti "COMPET Médio-Tec" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-global-pe-29-2026 owl:sameAs edital:edital-global-pe-29-2026 ;
+	facepe:vinculado_a_programa edital:programa-global-pe ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Resultado Final do Edital n° 29/2026 – Global PE Argentina" ;
+	facepe:id_edital "29/2026" ;
+	facepe:dt_resultado_publicado "2026-10-14" ;
+	facepe:dt_publicacao "14 de outubro de 2026" ;
+	facepe:dt_lancamento "2026-09-25" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a facepe:Edital , owl:Thing .
+edital:edital-compet-solucoes-20-2023 owl:sameAs edital:edital-compet-solucoes-20-2023 ;
+	facepe:vinculado_a_programa edital:programa-compet-solucoes ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "RESULTADO FINAL do Edital n° 20/2023 – COMPET Soluções" ;
+	facepe:id_edital "20/2023" ;
+	facepe:dt_resultado_publicado "2024-03-27" ;
+	facepe:dt_resultado_previsto "2024-02-06" ;
+	facepe:dt_publicacao "27 de março de 2024" ;
+	facepe:dt_lancamento "2023-11-21" ;
+	facepe:dt_fim_submissao "2024-01-08" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pro-startups-incubadoras-23-2022 owl:sameAs edital:edital-pro-startups-incubadoras-23-2022 ;
+	facepe:vinculado_a_programa edital:programa-pro-startups-incubadoras ;
+	facepe:nm_edital "Pró-Startups Incubadoras – Resultado" ;
+	facepe:id_edital "23/2022" ;
+	facepe:dt_publicacao "11 de outubro de 2022" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-tecnova owl:sameAs edital:programa-tecnova ;
+	facepe:pertence_ao_estagio edital:estagio-aceleracao ;
+	facepe:nm_programa_cti "Tecnova" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-fronteiras-da-inovacao-11-2022 owl:sameAs edital:edital-fronteiras-da-inovacao-11-2022 ;
+	facepe:vinculado_a_programa edital:programa-fronteiras-da-inovacao ;
+	facepe:nm_edital "Fronteiras da Inovação – Resultado Final" ;
+	facepe:id_edital "11/2022" ;
+	facepe:dt_publicacao "5 de agosto de 2022" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-20-2010 owl:sameAs edital:edital-pbpg-20-2010 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2011.1" ;
+	facepe:id_edital "20/2010" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-espaco-cria-25-2025 owl:sameAs edital:edital-espaco-cria-25-2025 ;
+	facepe:vinculado_a_programa edital:programa-espaco-cria ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Espaços CRIA: publicada a homologação de resultado do Edital nº 25/2025" ;
+	facepe:id_edital "25/2025" ;
+	facepe:dt_resultado_previsto "2025-07-10" ;
+	facepe:dt_publicacao "17 de julho de 2025" ;
+	facepe:dt_lancamento "2025-05-27" ;
+	facepe:dt_fim_submissao "2025-06-25" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a facepe:Edital , owl:Thing .
+edital:edital-espaco-cria-11-2024 owl:sameAs edital:edital-espaco-cria-11-2024 ;
+	facepe:vinculado_a_programa edital:programa-espaco-cria ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Espaços CRIA: Espaços de Criatividade, Inovação e Aprendizagem – Resultado Final" ;
+	facepe:id_edital "11/2024" ;
+	facepe:dt_resultado_publicado "2024-09-03" ;
+	facepe:dt_resultado_previsto "2024-09-04" ;
+	facepe:dt_publicacao "3 de setembro de 2024" ;
+	facepe:dt_lancamento "2024-07-18" ;
+	facepe:dt_fim_submissao "2024-08-15" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-pernambucanas-inovadoras owl:sameAs edital:programa-pernambucanas-inovadoras ;
+	facepe:pertence_ao_estagio edital:estagio-operacao ;
+	facepe:nm_programa_cti "Pernambucanas Inovadoras" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:programa-centelha owl:sameAs edital:programa-centelha ;
+	facepe:pertence_ao_estagio edital:estagio-operacao ;
+	facepe:nm_programa_cti "Centelha" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-compet-superior-33-2024 owl:sameAs edital:edital-compet-superior-33-2024 ;
+	facepe:vinculado_a_programa edital:programa-compet-superior ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Compet Superior – Resultado Final" ;
+	facepe:id_edital "33/2024" ;
+	facepe:dt_resultado_publicado "2025-03-19" ;
+	facepe:dt_resultado_previsto "2025-03-10" ;
+	facepe:dt_publicacao "19 de março de 2025" ;
+	facepe:dt_lancamento "2024-11-22" ;
+	facepe:dt_fim_submissao "2025-01-20" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-11-2019 owl:sameAs edital:edital-pbpg-11-2019 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2019.2" ;
+	facepe:id_edital "11/2019" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pepe-06-2022 owl:sameAs edital:edital-pepe-06-2022 ;
+	facepe:vinculado_a_programa edital:programa-pepe ;
+	facepe:nm_edital "PEPE Inova Talentos – Resultado Final" ;
+	facepe:id_edital "06/2022" ;
+	facepe:dt_publicacao "22 de agosto de 2022" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-fronteiras-da-inovacao owl:sameAs edital:programa-fronteiras-da-inovacao ;
+	facepe:pertence_ao_estagio edital:estagio-a-classificar ;
+	facepe:nm_programa_cti "Fronteiras da Inovação" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:programa-pepe owl:sameAs edital:programa-pepe ;
+	facepe:pertence_ao_estagio edital:estagio-a-classificar ;
+	facepe:nm_programa_cti "PEPE" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-pernambucanas-inovadoras-12-2025 owl:sameAs edital:edital-pernambucanas-inovadoras-12-2025 ;
+	facepe:vinculado_a_programa edital:programa-pernambucanas-inovadoras ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Pernambucanas Inovadoras: homologado o resultado do Edital nº 12/2025" ;
+	facepe:id_edital "12/2025" ;
+	facepe:dt_resultado_publicado "2025-07-23" ;
+	facepe:dt_resultado_previsto "2025-06-27" ;
+	facepe:dt_publicacao "22 de julho de 2025" ;
+	facepe:dt_lancamento "2025-03-20" ;
+	facepe:dt_fim_submissao "2025-05-26" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a facepe:Edital , owl:Thing .
+edital:edital-pappe-17-2010 owl:sameAs edital:edital-pappe-17-2010 ;
+	facepe:vinculado_a_programa edital:programa-pappe ;
+	facepe:nm_edital "Apoio à Pesquisa, Desenvolvimento e Inovação em Microempresas e Empresas de Pequeno Porte na Modalidade Subvenção Econômica – PAPPE Integração/Facepe (Resultado Final 1° Rodada)" ;
+	facepe:id_edital "17/2010" ;
+	facepe:dt_publicacao "14 de dezembro de 2010" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-ipecti-20-2024 owl:sameAs edital:edital-ipecti-20-2024 ;
+	facepe:vinculado_a_programa edital:programa-ipecti ;
+	facepe:nm_edital "IPECTI: Cidades inteligentes e resilientes – Resultado Final" ;
+	facepe:id_edital "20/2024" ;
+	facepe:dt_publicacao "9 de outubro de 2024" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-07-2021 owl:sameAs edital:edital-pbpg-07-2021 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2021.2" ;
+	facepe:id_edital "07/2021" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-compet-medio-tec-19-2025 owl:sameAs edital:edital-compet-medio-tec-19-2025 ;
+	facepe:vinculado_a_programa edital:programa-compet-medio-tec ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "homologação do resultado do Edital nº 19/2025 – Compet Médio-Tec: Habilidades de Futuro para o Ensino Médio e Técnico" ;
+	facepe:id_edital "19/2025" ;
+	facepe:dt_resultado_publicado "2025-08-11" ;
+	facepe:dt_resultado_previsto "2025-07-28" ;
+	facepe:dt_publicacao "11 de agosto de 2025" ;
+	facepe:dt_lancamento "2025-05-22" ;
+	facepe:dt_fim_submissao "2025-07-07" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a facepe:Edital , owl:Thing .
+edital:edital-pbpg-08-2010 owl:sameAs edital:edital-pbpg-08-2010 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2010.2" ;
+	facepe:id_edital "08/2010" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-tecnova-12-2014 owl:sameAs edital:edital-tecnova-12-2014 ;
+	facepe:vinculado_a_programa edital:programa-tecnova ;
+	facepe:nr_alteracoes_cronograma 4 ;
+	facepe:nm_edital "Apoio à Pesquisa, Desenvolvimento e Inovação em Microempresas e Empresas de Pequeno Porte na Modalidade Subvenção Econômica – Tecnova (RESULTADO FINAL APÓS RECURSOS)" ;
+	facepe:id_edital "12/2014" ;
+	facepe:dt_resultado_publicado "2014-11-28" ;
+	facepe:dt_resultado_previsto "2014-11-07" ;
+	facepe:dt_publicacao "6 de fevereiro de 2015" ;
+	facepe:dt_lancamento "2014-08-13" ;
+	facepe:dt_fim_submissao "2014-10-08" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a facepe:Edital , owl:Thing .
+edital:edital-centelha-28-2021 owl:sameAs edital:edital-centelha-28-2021 ;
+	facepe:vinculado_a_programa edital:programa-centelha ;
+	facepe:nr_alteracoes_cronograma 10 ;
+	facepe:nm_edital "CENTELHA-PE 2 – RESULTADO FINAL APÓS CONTRATAÇÃO" ;
+	facepe:id_edital "28/2021" ;
+	facepe:dt_resultado_publicado "2023-08-01" ;
+	facepe:dt_resultado_previsto "2022-04-18" ;
+	facepe:dt_publicacao "1 de agosto de 2023" ;
+	facepe:dt_lancamento "2021-11-10" ;
+	facepe:dt_fim_submissao "2022-01-03" ;
+	facepe:ds_estrutura_selecao "fases" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-17-2012 owl:sameAs edital:edital-pbpg-17-2012 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2013.1" ;
+	facepe:id_edital "17/2012" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-compet-solucoes owl:sameAs edital:programa-compet-solucoes ;
+	facepe:pertence_ao_estagio edital:estagio-operacao ;
+	facepe:nm_programa_cti "COMPET Soluções" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:estagio-operacao owl:sameAs edital:estagio-operacao ;
+	facepe:nr_ordem_estagio 2 ;
+	facepe:nm_estagio "Operação" ;
+	a owl:Thing , facepe:Estagio_Maturidade .
+edital:edital-pappe-10-2012 owl:sameAs edital:edital-pappe-10-2012 ;
+	facepe:vinculado_a_programa edital:programa-pappe ;
+	facepe:nm_edital "Apoio à Pesquisa, Desenvolvimento e Inovação em Microempresas e Empresas de Pequeno Porte na Modalidade Subvenção Econômica – PAPPE Integração/Facepe (Resultado Final 3ª Rodada)" ;
+	facepe:id_edital "10/2012" ;
+	facepe:dt_publicacao "10 de dezembro de 2012" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-19-2024 owl:sameAs edital:edital-pbpg-19-2024 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2024.2" ;
+	facepe:id_edital "19/2024" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-ipecti-28-2025 owl:sameAs edital:edital-ipecti-28-2025 ;
+	facepe:vinculado_a_programa edital:programa-ipecti ;
+	facepe:nm_edital "Homologação do resultado IPECTI: Combate à Violência" ;
+	facepe:id_edital "28/2025" ;
+	facepe:dt_publicacao "29 de setembro de 2025" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-desafios-gov owl:sameAs edital:programa-desafios-gov ;
+	facepe:pertence_ao_estagio edital:estagio-operacao ;
+	facepe:nm_programa_cti "Desafios.Gov" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-pro-startups-incubadoras-25-2024 owl:sameAs edital:edital-pro-startups-incubadoras-25-2024 ;
+	facepe:vinculado_a_programa edital:programa-pro-startups-incubadoras ;
+	facepe:nm_edital "Divulgado Resultado Final do Pró-Startups Incubadoras" ;
+	facepe:id_edital "25/2024" ;
+	facepe:dt_publicacao "21 de fevereiro de 2025" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-compet-superior-14-2026 owl:sameAs edital:edital-compet-superior-14-2026 ;
+	facepe:vinculado_a_programa edital:programa-compet-superior ;
+	facepe:nr_alteracoes_cronograma 1 ;
+	facepe:nm_edital "Resultado Final Edital nº 14/2026-Facepe Compet Superior" ;
+	facepe:id_edital "14/2026" ;
+	facepe:dt_resultado_publicado "2026-08-31" ;
+	facepe:dt_resultado_previsto "2026-09-09" ;
+	facepe:dt_publicacao "31 de agosto de 2026" ;
+	facepe:dt_lancamento "2026-04-29" ;
+	facepe:dt_fim_submissao "2026-07-27" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-09-2018 owl:sameAs edital:edital-pbpg-09-2018 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2018.2" ;
+	facepe:id_edital "09/2018" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-espaco-cria owl:sameAs edital:programa-espaco-cria ;
+	facepe:pertence_ao_estagio edital:estagio-ideacao ;
+	facepe:nm_programa_cti "Espaço CRIA" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-pbpg-29-2024 owl:sameAs edital:edital-pbpg-29-2024 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2025.1" ;
+	facepe:id_edital "29/2024" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-desafios-gov-10-2025 owl:sameAs edital:edital-desafios-gov-10-2025 ;
+	facepe:vinculado_a_programa edital:programa-desafios-gov ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "Desafios.Gov – Resultado Final" ;
+	facepe:id_edital "10/2025" ;
+	facepe:dt_resultado_publicado "2025-06-12" ;
+	facepe:dt_resultado_previsto "2025-05-23" ;
+	facepe:dt_publicacao "12 de junho de 2025" ;
+	facepe:dt_lancamento "2025-03-11" ;
+	facepe:dt_fim_submissao "2025-04-28" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a facepe:Edital , owl:Thing .
+edital:edital-compet-medio-tec-04-2024 owl:sameAs edital:edital-compet-medio-tec-04-2024 ;
+	facepe:vinculado_a_programa edital:programa-compet-medio-tec ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "COMPET Médio-Tec: Habilidades de Futuro Para Ensino Médio e Técnico – Resultado Final" ;
+	facepe:id_edital "04/2024" ;
+	facepe:dt_resultado_publicado "2024-09-03" ;
+	facepe:dt_resultado_previsto "2024-08-26" ;
+	facepe:dt_publicacao "3 de setembro de 2024" ;
+	facepe:dt_lancamento "2024-06-14" ;
+	facepe:dt_fim_submissao "2024-07-22" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-20-2019 owl:sameAs edital:edital-pbpg-20-2019 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2020.1" ;
+	facepe:id_edital "20/2019" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-07-2016 owl:sameAs edital:edital-pbpg-07-2016 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2016.2" ;
+	facepe:id_edital "07/2016" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pappe-14-2017 owl:sameAs edital:edital-pappe-14-2017 ;
+	facepe:vinculado_a_programa edital:programa-pappe ;
+	facepe:nm_edital "PAPPE 7ª Rodada – Resultado Final" ;
+	facepe:id_edital "14/2017" ;
+	facepe:dt_publicacao "18 de dezembro de 2017" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-pibiti-pe owl:sameAs edital:programa-pibiti-pe ;
+	facepe:pertence_ao_estagio edital:estagio-ideacao ;
+	facepe:nm_programa_cti "PIBITI-PE" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-compet-residencia-tecnologica-07-2024 owl:sameAs edital:edital-compet-residencia-tecnologica-07-2024 ;
+	facepe:vinculado_a_programa edital:programa-compet-residencia-tecnologica ;
+	facepe:nr_alteracoes_cronograma 0 ;
+	facepe:nm_edital "FACEPE/SECTI divulgam o Resultado Final do Edital nº 07/2024 – Compet Residência Tecnológica" ;
+	facepe:id_edital "07/2024" ;
+	facepe:dt_resultado_previsto "2024-07-02" ;
+	facepe:dt_publicacao "9 de julho de 2024" ;
+	facepe:dt_lancamento "2024-05-09" ;
+	facepe:dt_fim_submissao "2024-06-10" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-redes-de-inovacao-04-2025 owl:sameAs edital:edital-redes-de-inovacao-04-2025 ;
+	facepe:vinculado_a_programa edital:programa-redes-de-inovacao ;
+	facepe:nm_edital "Redes de Inovação – Resultado Final" ;
+	facepe:id_edital "04/2025" ;
+	facepe:dt_publicacao "30 de maio de 2025" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-pbpg-03-2006 owl:sameAs edital:edital-pbpg-03-2006 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "BPG (Plano Nordeste)" ;
+	facepe:id_edital "03/2006" ;
+	a owl:Thing , facepe:Edital .
+edital:edital-bonus-tecnologico-20-2022 owl:sameAs edital:edital-bonus-tecnologico-20-2022 ;
+	facepe:vinculado_a_programa edital:programa-bonus-tecnologico ;
+	facepe:nm_edital "Bônus Tecnológico – Resultado final da 4º Rodada" ;
+	facepe:id_edital "20/2022" ;
+	facepe:dt_publicacao "3 de abril de 2023" ;
+	a owl:Thing , facepe:Edital .
+edital:estagio-ideacao owl:sameAs edital:estagio-ideacao ;
+	facepe:nr_ordem_estagio 1 ;
+	facepe:nm_estagio "Ideação" ;
+	a owl:Thing , facepe:Estagio_Maturidade .
+edital:edital-pbpg-05-2013 owl:sameAs edital:edital-pbpg-05-2013 ;
+	facepe:vinculado_a_programa edital:programa-pbpg ;
+	facepe:nm_edital "PBPG 2013.2" ;
+	facepe:id_edital "05/2013" ;
+	a owl:Thing , facepe:Edital .
+edital:programa-ipecti owl:sameAs edital:programa-ipecti ;
+	facepe:pertence_ao_estagio edital:estagio-a-classificar ;
+	facepe:nm_programa_cti "IPECTI" ;
+	a owl:Thing , facepe:Programa_CTI .
+edital:edital-compet-solucoes-42-2025 owl:sameAs edital:edital-compet-solucoes-42-2025 ;
+	facepe:vinculado_a_programa edital:programa-compet-solucoes ;
+	facepe:nr_alteracoes_cronograma 1 ;
+	facepe:nm_edital "Resultado final Compet Soluções" ;
+	facepe:id_edital "42/2025" ;
+	facepe:dt_resultado_publicado "2026-03-16" ;
+	facepe:dt_resultado_previsto "2026-03-17" ;
+	facepe:dt_publicacao "16 de março de 2026" ;
+	facepe:dt_lancamento "2025-11-28" ;
+	facepe:dt_fim_submissao "2026-02-12" ;
+	facepe:ds_estrutura_selecao "única" ;
+	a owl:Thing , facepe:Edital .
+facepe:nm_maior_titulacao a owl:DatatypeProperty .
+facepe:Bolsa rdfs:subClassOf facepe:Bolsa , facepe:Processo ;
+	a owl:Class .
+facepe:coordena a owl:ObjectProperty .
+facepe:vinculado_a_programa a owl:ObjectProperty .
+facepe:executado_por a owl:ObjectProperty , owl:FunctionalProperty .
+facepe:Bolsista rdfs:subClassOf facepe:Bolsista , facepe:Pessoa ;
+	a owl:Class .
+facepe:Projeto rdfs:subClassOf facepe:Projeto , facepe:Processo ;
+	a owl:Class .
+facepe:nr_ordem_estagio a owl:DatatypeProperty .
+facepe:orienta_projeto a owl:ObjectProperty .
+facepe:nm_area_conhecimento_facepe a owl:DatatypeProperty .
+facepe:dt_cancelamento a owl:DatatypeProperty .
+facepe:dt_resultado_previsto a owl:DatatypeProperty .
+facepe:pertence_ao_estagio a owl:ObjectProperty , owl:FunctionalProperty .
+facepe:nm_cidade_endereco a owl:DatatypeProperty .
+facepe:Organizacao rdfs:subClassOf facepe:Organizacao ;
+	a owl:Class .
+facepe:Estagio_Maturidade rdfs:subClassOf facepe:Estagio_Maturidade ;
+	a owl:Class .
+facepe:Pessoa rdfs:subClassOf facepe:Pessoa ;
+	a owl:Class .
+facepe:nm_sigla_ict a owl:DatatypeProperty .
+facepe:recebe a owl:ObjectProperty .
+facepe:vinculada_a_projeto a owl:ObjectProperty .
+facepe:id_bolsa a owl:DatatypeProperty .
+facepe:Empresa rdfs:subClassOf facepe:Empresa , facepe:Organizacao ;
+	a owl:Class .
+owl:topDataProperty a owl:DatatypeProperty .
+owl:topObjectProperty a owl:ObjectProperty , owl:TransitiveProperty , owl:SymmetricProperty .
+facepe:ds_fonte a owl:DatatypeProperty .
+facepe:dt_relatorio_final a owl:DatatypeProperty .
+facepe:cd_modalidade a owl:DatatypeProperty .
+facepe:concedida_em a owl:ObjectProperty .
+facepe:id_edital a owl:DatatypeProperty .
+facepe:dt_lancamento a owl:DatatypeProperty .
+owl:Thing a owl:Class .
+facepe:Participante rdfs:subClassOf facepe:Participante , facepe:Pessoa ;
+	a owl:Class .
+facepe:nm_nivel_bolsa a owl:DatatypeProperty .
+facepe:ds_estrutura_selecao a owl:DatatypeProperty .
+facepe:nr_alteracoes_cronograma a owl:DatatypeProperty .
+facepe:ano_maior_titulacao a owl:DatatypeProperty .
+facepe:Edital rdfs:subClassOf facepe:Edital ;
+	a owl:Class .
+facepe:nm_pais_nacionalidade a owl:DatatypeProperty .
+facepe:vl_fomento a owl:DatatypeProperty .
+facepe:nr_cpf a owl:DatatypeProperty .
+<http://gic.ufrpe.br/facepe-inovacao/description/bundle/classes> owl:versionInfo "1795441948" ;
+	owl:imports <http://gic.ufrpe.br/facepe-inovacao/description/bundle> ;
+	rdfs:comment "Generated by Owl Reason 2.15.0" ;
+	a owl:Ontology .
+facepe:id_projeto a owl:DatatypeProperty .
+facepe:cd_ict_capes a owl:DatatypeProperty .
+facepe:nm_pessoa a owl:DatatypeProperty .
+facepe:Programa_CTI rdfs:subClassOf facepe:Programa_CTI ;
+	a owl:Class .
+facepe:dt_publicacao a owl:DatatypeProperty .
+facepe:dt_fim a owl:DatatypeProperty .
+owl:Nothing a owl:Class .
+facepe:dt_resultado_publicado a owl:DatatypeProperty .
+facepe:nm_rde a owl:DatatypeProperty .
+facepe:dt_referencia a owl:DatatypeProperty .
+facepe:dt_fim_submissao_original a owl:DatatypeProperty .
+facepe:ICT rdfs:subClassOf facepe:ICT , facepe:Organizacao ;
+	a owl:Class .
+facepe:Coordenador rdfs:subClassOf facepe:Coordenador , facepe:Pessoa ;
+	a owl:Class .
+facepe:nm_titulo_projeto a owl:DatatypeProperty .
+facepe:submetido_a a owl:ObjectProperty .
+facepe:Orientador rdfs:subClassOf facepe:Orientador , facepe:Pessoa ;
+	a owl:Class .
+facepe:nm_programa_cti a owl:DatatypeProperty .
+facepe:dt_inicio a owl:DatatypeProperty .
+facepe:cd_cat_bolsa_produtividade a owl:DatatypeProperty .
+facepe:id_pessoa a owl:DatatypeProperty .
+facepe:nm_estagio a owl:DatatypeProperty .
+facepe:an_nascimento a owl:DatatypeProperty .
+facepe:dt_fim_submissao a owl:DatatypeProperty .
+facepe:vl_investimento a owl:DatatypeProperty .
+facepe:nm_organizacao a owl:DatatypeProperty .
+facepe:ds_url_cv_lattes a owl:DatatypeProperty .
+facepe:Processo rdfs:subClassOf facepe:Processo ;
+	a owl:Class .
+facepe:orienta_bolsa a owl:ObjectProperty .
+facepe:id_organizacao a owl:DatatypeProperty .
+facepe:nm_edital a owl:DatatypeProperty .
+facepe:id_programa_cti a owl:DatatypeProperty .
+facepe:vl_area_prioritaria a owl:DatatypeProperty .
+facepe:vinculado_a_ict a owl:ObjectProperty .

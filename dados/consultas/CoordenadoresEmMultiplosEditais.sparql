@@ -1,0 +1,23 @@
+PREFIX facepe: <http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe#>
+
+# Pessoas que coordenaram projetos em mais de um edital. Agrupa por id_pessoa: quem está
+# no Planilhão FACEPE é identificado pelo pseudônimo do CPF; quem só aparece nos PDFs,
+# pelo nome publicado.
+SELECT (SAMPLE(?nomePessoa) AS ?nome) (COUNT(DISTINCT ?editalInd) AS ?qtdEditais)
+       (GROUP_CONCAT(DISTINCT CONCAT(?programa, " - ", ?edital); separator=" | ") AS ?editais)
+WHERE {
+	?coordenador a facepe:Coordenador ;
+		facepe:id_pessoa ?id ;
+		facepe:nm_pessoa ?nomePessoa ;
+		facepe:coordena ?projeto .
+
+	?projeto facepe:submetido_a ?editalInd .
+
+	?editalInd facepe:id_edital ?edital ;
+		facepe:vinculado_a_programa ?programaInd .
+
+	?programaInd facepe:nm_programa_cti ?programa .
+}
+GROUP BY ?id
+HAVING (COUNT(DISTINCT ?editalInd) > 1)
+ORDER BY DESC(?qtdEditais) ?nome

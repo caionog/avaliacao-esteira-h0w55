@@ -1,0 +1,35 @@
+PREFIX facepe: <http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe#>
+
+# Trajetória completa (todos os editais em que coordenaram projetos) dos coordenadores
+# do Tecnova III (edital 23/2024): não só o que fizeram nesse edital, mas em quais outros
+# editais/programas também aparecem. A pessoa é identificada por id_pessoa.
+SELECT DISTINCT ?nome ?qtdEditais ?programa ?edital
+WHERE {
+	{
+		SELECT ?id (SAMPLE(?nomePessoa) AS ?nome) (COUNT(DISTINCT ?editalInd) AS ?qtdEditais)
+		WHERE {
+			?coordenador facepe:id_pessoa ?id ;
+				facepe:nm_pessoa ?nomePessoa ;
+				facepe:coordena ?projeto .
+			?projeto facepe:submetido_a ?editalInd .
+
+			FILTER EXISTS {
+				?coordenadorTecnova facepe:id_pessoa ?id ;
+					facepe:coordena ?projetoTecnova .
+				?projetoTecnova facepe:submetido_a ?editalTecnova .
+				?editalTecnova facepe:id_edital "23/2024" ;
+					facepe:vinculado_a_programa ?programaTecnova .
+				?programaTecnova facepe:nm_programa_cti "Tecnova" .
+			}
+		}
+		GROUP BY ?id
+	}
+
+	?coordenador facepe:id_pessoa ?id ;
+		facepe:coordena ?projeto .
+	?projeto facepe:submetido_a ?editalInd .
+	?editalInd facepe:id_edital ?edital ;
+		facepe:vinculado_a_programa ?programaInd .
+	?programaInd facepe:nm_programa_cti ?programa .
+}
+ORDER BY DESC(?qtdEditais) ?nome ?programa ?edital

@@ -1,0 +1,220 @@
+{
+ "gerado_em": "2026-11-23T11:06:33",
+ "triplas": 90057,
+ "graficos": [
+  {
+   "arquivo": "dados/graficos/estudo_caso_tecnova_iii_esteira.png",
+   "titulo": "Estudo de caso: trajetória dos projetos do Tecnova III na esteira",
+   "descricao": "Cada linha é um projeto do Tecnova III (empresa e coordenador, anonimizados); cada coluna, um edital dos programas da esteira.",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/estudo_caso_tecnova_iii_facepe.png",
+   "titulo": "Estudo de caso: trajetória dos projetos do Tecnova III em todos os editais da FACEPE",
+   "descricao": "Os mesmos projetos, com a mesma numeração, incluindo os editais fora da esteira (em cinza).",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/participacao_anterior_por_estagio_esteira.png",
+   "titulo": "Apoio anterior por edital e estágio (só a esteira)",
+   "descricao": "Parcela dos beneficiários de cada edital da esteira (desde 2024) que já tinham passado pela esteira.",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/participacao_anterior_por_estagio_facepe.png",
+   "titulo": "Apoio anterior por edital e estágio (qualquer edital da FACEPE)",
+   "descricao": "Os mesmos editais, contando apoio anterior em qualquer edital da FACEPE.",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/hipotese_participacao_anterior_esteira.png",
+   "titulo": "Análise agregada: passagem anterior pela esteira",
+   "descricao": "Coordenadores de Operação e Aceleração que já tinham participado antes de algum programa da esteira.",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/hipotese_participacao_anterior_facepe.png",
+   "titulo": "Análise agregada: participação anterior na FACEPE",
+   "descricao": "Os mesmos coordenadores, contando qualquer edital da FACEPE (fora da esteira e pós-graduação).",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/editais_por_programa.png",
+   "titulo": "Editais por programa",
+   "descricao": "Número de editais de cada programa, agrupados por estágio de maturidade.",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/projetos_por_regiao_esteira.png",
+   "titulo": "Projetos da esteira por Região de Desenvolvimento",
+   "descricao": "Onde estão os projetos da esteira, pela região da instituição executora, por estágio.",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/projetos_por_regiao_facepe.png",
+   "titulo": "Projetos de inovação por Região de Desenvolvimento",
+   "descricao": "Todos os projetos de inovação, com os de fora da esteira em cinza.",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/mapa_esteira.png",
+   "titulo": "Mapa da esteira",
+   "descricao": "Os 18 programas, com logotipo, papel, público, dados e fluxos (Introdução do painel).",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/calendario_editais.png",
+   "titulo": "Calendário dos editais da esteira",
+   "descricao": "Janelas de submissão de cada edital, prorrogações e resultados publicados, 2019–2026.",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/calendario_sugerido.png",
+   "titulo": "Calendário sugerido",
+   "descricao": "Términos dos projetos por mês e as janelas sugeridas para o estágio seguinte, com a simulação.",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/espera_entre_estagios.png",
+   "titulo": "Espera entre estágios",
+   "descricao": "Quando um processo termina, quanto falta para abrir um edital do estágio seguinte.",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/movimentos_esteira.png",
+   "titulo": "Movimentos entre os programas",
+   "descricao": "Fluxos de 3 ou mais pessoas de um programa da esteira para o seguinte, pela direção.",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/movimentos_esteira_matriz.png",
+   "titulo": "Movimentos entre os programas: todos os fluxos",
+   "descricao": "Matriz de onde para onde, com todos os fluxos de pessoas, inclusive os de 1 ou 2.",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/continuidade_esteira.png",
+   "titulo": "Continuidade na esteira",
+   "descricao": "Pessoas e empresas apoiadas depois em outro programa da esteira (entradas até 09/2024).",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/desfecho_processos_esteira.png",
+   "titulo": "Desfecho dos processos",
+   "descricao": "Concluídos, sem relatório, em andamento e cancelados (9 programas do extrato; consulta DesfechoProcessos).",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/coordenadores_transversais.png",
+   "titulo": "Pessoas em mais de um edital da esteira",
+   "descricao": "Quantos editais da esteira cada pessoa teve e por quais estágios passou (sem nomes).",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/trajetorias_mais_editais.png",
+   "titulo": "Trajetórias de quem mais voltou à esteira",
+   "descricao": "As pessoas com 4 ou mais editais da esteira (sem as só das escolas), anonimizadas.",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/trajetorias_mais_editais_nomes.png",
+   "titulo": "Trajetórias de quem mais voltou à esteira (com nomes)",
+   "descricao": "As mesmas pessoas, na mesma ordem, com os nomes.",
+   "com_nomes": true
+  },
+  {
+   "arquivo": "dados/graficos/estudo_caso_tecnova_iii_esteira_nomes.png",
+   "titulo": "Estudo de caso: Tecnova III na esteira (com nomes)",
+   "descricao": "Os mesmos projetos, na mesma ordem, com a empresa e o coordenador (nome publicado ou pseudônimo).",
+   "com_nomes": true
+  },
+  {
+   "arquivo": "dados/graficos/estudo_caso_tecnova_iii_facepe_nomes.png",
+   "titulo": "Estudo de caso: Tecnova III em todos os editais da FACEPE (com nomes)",
+   "descricao": "Os mesmos projetos, na mesma ordem, com a empresa e o coordenador.",
+   "com_nomes": true
+  },
+  {
+   "arquivo": "dados/graficos/estudo_caso_global_pe_espanha_esteira_nomes.png",
+   "titulo": "Contraste: Global.PE Espanha na esteira (com nomes)",
+   "descricao": "Os mesmos coordenadores, na mesma ordem, com os nomes.",
+   "com_nomes": true
+  },
+  {
+   "arquivo": "dados/graficos/estudo_caso_global_pe_espanha_facepe_nomes.png",
+   "titulo": "Contraste: Global.PE Espanha em todos os editais da FACEPE (com nomes)",
+   "descricao": "Os mesmos coordenadores, na mesma ordem, com os nomes.",
+   "com_nomes": true
+  },
+  {
+   "arquivo": "dados/graficos/estudo_caso_global_pe_espanha_esteira.png",
+   "titulo": "Contraste: trajetória dos coordenadores do Global.PE Espanha na esteira",
+   "descricao": "Os 11 coordenadores do Global.PE Espanha (22/2026), anonimizados, nos editais da esteira.",
+   "com_nomes": false
+  },
+  {
+   "arquivo": "dados/graficos/estudo_caso_global_pe_espanha_facepe.png",
+   "titulo": "Contraste: trajetória dos coordenadores do Global.PE Espanha em todos os editais da FACEPE",
+   "descricao": "Os mesmos coordenadores, com a mesma numeração, incluindo os editais fora da esteira.",
+   "com_nomes": false
+  }
+ ],
+ "consultas": [
+  {
+   "nome": "CalendarioEditais",
+   "descricao": "Calendário dos editais da esteira (programas de Ideação, Operação e Aceleração): a primeira janela de entrada de cada edital (lançamento, fim da submissão depois das prorrogações e a data original, resultado previsto e publicado), a estrutura da seleção (única, fases, rodadas, fluxo contínuo) e o número de documentos que alteraram o cronograma. Datas em AAAA-MM-DD."
+  },
+  {
+   "nome": "CoordenadoresEmMultiplosEditais",
+   "descricao": "Pessoas que coordenaram projetos em mais de um edital. Agrupa por id_pessoa: quem está no Planilhão FACEPE é identificado pelo pseudônimo do CPF; quem só aparece nos PDFs, pelo nome publicado."
+  },
+  {
+   "nome": "DesfechoProcessos",
+   "descricao": "Desfecho dos processos (projetos e bolsas) dos programas da esteira: início e fim da vigência, cancelamento e entrega do relatório final. Só os processos do extrato do AgilFAP têm essas datas; os que só existem nos resultados publicados vêm sem elas (desfecho não observado). Usada para o desfecho dos processos e para o tempo de espera entre o fim de um processo e a próxima janela de edital do estágio seguinte."
+  },
+  {
+   "nome": "EditaisPorPrograma",
+   "descricao": "Editais por programa, com o estágio de maturidade do programa. Todos os programas do pôster da FACEPE (e os fora dele) são indivíduos, então os que não têm edital nas fontes aparecem com zero."
+  },
+  {
+   "nome": "ParticipacaoAnterior",
+   "descricao": "Hipótese: quem coordena um projeto num programa de Operação ou de Aceleração já tinha participado antes de algum programa da FACEPE. Para cada pessoa e cada um desses dois estágios, ?inicio é a data de referência do seu primeiro projeto no estágio, e cada coluna booleana diz se, antes dessa data, ela já tinha: - coordenado um projeto em programa de Ideação, Operação ou Aceleração, ou em programa sem estágio definido (?coordenouOutro: \"A classificar\"); - recebido uma bolsa de programa de inovação (BFI, BCT) ou de pós-graduação (IBPG); - orientado um projeto ou uma bolsa. Para a versão só com a esteira (os programas de Ideação, Operação e Aceleração, sem os \"A classificar\" nem a pós-graduação), ?bolsaEsteira e ?orientouEsteira restringem a bolsa e a orientação a editais de programas da esteira; as colunas de coordenação por estágio já separam a esteira (?coordenouIdeacao/Operacao/Aceleracao) do resto (?coordenouOutro). Estágios comparados pela ordem (1 = Ideação, 2 = Operação, 3 = Aceleração); datas são texto AAAA-MM-DD, que se compara na ordem cronológica."
+  },
+  {
+   "nome": "ParticipacoesComData",
+   "descricao": "Cada vez que uma pessoa foi beneficiária num edital (coordenou um projeto ou recebeu uma bolsa), com o estágio do programa e a data de referência do processo (início da vigência ou, sem ela, data do resultado do edital, AAAA-MM-DD). Usada para medir quem já tinha sido apoiado antes de cada edital."
+  },
+  {
+   "nome": "ParticipacoesNaEsteira",
+   "descricao": "Participações de pessoas e de empresas nos programas da esteira, com as datas do processo. Uma linha por participante e processo: a pessoa que coordenou o projeto ou recebeu a bolsa, ou a empresa que executou o projeto (executado_por). Orientações não contam. Alimenta o mapa da esteira, os movimentos entre programas e a matriz de fluxos (scrapper/figura_esteira.py) e a continuidade depois de cada programa (scrapper/medir_continuidade.py): a ordem no tempo vem de dt_referencia, e o desempate entre processos da mesma data é feito no script, pela ordem dos editais. Só a esteira: o estágio \"A classificar\" não tem nr_ordem_estagio, então os programas fora das três colunas do pôster ficam de fora pelo próprio padrão da consulta."
+  },
+  {
+   "nome": "PassagemAnteriorTecnovaIII",
+   "descricao": "Estudo de caso: os projetos do Tecnova III (edital 23/2024), pela empresa executora e pelo coordenador, já tinham passado pela esteira de programas de inovação da FACEPE? Uma linha por projeto; ?inicio é a data de referência do projeto (início da vigência). Colunas booleanas, sempre num outro edital e com data de referência anterior a ?inicio: ?empresaEsteira     a empresa executou um projeto num programa de Ideação, Operação ou Aceleração (estágios 1 a 3 do pôster da FACEPE); ?empresaOutro       a empresa executou um projeto num programa \"A classificar\"; ?coordEsteira       o coordenador coordenou um projeto ou recebeu uma bolsa num programa dos estágios 1 a 3; ?coordOutro         o mesmo, num programa \"A classificar\"; ?coordMesmaEmpresa  o coordenador já tinha coordenado um projeto da mesma empresa. Bolsas de pós-graduação (PBPG, sem estágio) e orientações não contam aqui."
+  },
+  {
+   "nome": "ProgramasEEditais",
+   "descricao": "Catálogo: cada edital com o título, o programa a que pertence e o estágio de maturidade do programa (vazio nos programas sem estágio). Todos os programas da base, dentro e fora da esteira."
+  },
+  {
+   "nome": "ProjetosPorRegiao",
+   "descricao": "Projetos por Região de Desenvolvimento (RD) da instituição executora e por programa. nm_rde vem do Planilhão FACEPE (integrar_planilhao.py); projetos sem cruzamento com o planilhão ficam sem RD e aparecem com ?rde vazio."
+  },
+  {
+   "nome": "Top10CoordenadoresMultiEdital",
+   "descricao": "As 10 pessoas que coordenaram projetos em mais editais (só quem coordenou em mais de um), com os editais e programas de cada uma. Agrupa por id_pessoa. Não alimenta mais nenhum gráfico (desde 19/11/2026, o de trajetórias usa ParticipacoesComData); fica como consulta de exemplo."
+  },
+  {
+   "nome": "TrajetoriaCoordenadoresGlobalPEEspanha",
+   "descricao": "Trajetória completa (todos os editais em que coordenaram projetos) dos coordenadores do Global.PE Espanha (edital 22/2026): não só o que fizeram nesse edital, mas em quais outros editais/programas também aparecem. Mesma estrutura de TrajetoriaCoordenadoresTecnovaIII.sparql; a pessoa é identificada por id_pessoa."
+  },
+  {
+   "nome": "TrajetoriaCoordenadoresTecnovaIII",
+   "descricao": "Trajetória completa (todos os editais em que coordenaram projetos) dos coordenadores do Tecnova III (edital 23/2024): não só o que fizeram nesse edital, mas em quais outros editais/programas também aparecem. A pessoa é identificada por id_pessoa."
+  },
+  {
+   "nome": "TrajetoriaTecnovaIII",
+   "descricao": "Trajetória dos projetos do Tecnova III (edital 23/2024) na FACEPE, antes e depois dele: cada outro processo da empresa executora (?via = \"empresa\": projetos que ela executou) e do coordenador (?via = \"coordenador\": projetos que coordenou e bolsas que recebeu), com programa, estágio, edital e data de referência. ?mesmaEmpresa diz se o projeto coordenado foi executado pela mesma empresa do projeto do Tecnova III; ?comEmpresa, se o processo tem empresa identificada (bolsas nunca têm). Usada no gráfico do estudo de caso (anonimizado) e para contar as passagens anteriores pela esteira."
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+PREFIX facepe: <http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe#>
+
+# Projetos por Região de Desenvolvimento (RD) da instituição executora e por
+# programa. nm_rde vem do Planilhão FACEPE (integrar_planilhao.py); projetos sem
+# cruzamento com o planilhão ficam sem RD e aparecem com ?rde vazio.
+SELECT ?programa ?rde (COUNT(DISTINCT ?projeto) AS ?qtdProjetos)
+WHERE {
+	?projeto a facepe:Projeto ;
+		facepe:submetido_a ?editalInd .
+	?editalInd facepe:vinculado_a_programa ?programaInd .
+	?programaInd facepe:nm_programa_cti ?programa .
+	OPTIONAL { ?projeto facepe:nm_rde ?rde }
+}
+GROUP BY ?programa ?rde
+ORDER BY ?rde ?programa

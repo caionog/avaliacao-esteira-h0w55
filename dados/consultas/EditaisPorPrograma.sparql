@@ -1,0 +1,18 @@
+PREFIX facepe: <http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe#>
+
+# Editais por programa, com o estágio de maturidade do programa. Todos os programas do
+# pôster da FACEPE (e os fora dele) são indivíduos, então os que não têm edital nas
+# fontes aparecem com zero.
+SELECT ?programa ?estagio ?ordemEstagio (COUNT(DISTINCT ?editalInd) AS ?qtdEditais)
+WHERE {
+	?programaInd a facepe:Programa_CTI ;
+		facepe:nm_programa_cti ?programa .
+	OPTIONAL {
+		?programaInd facepe:pertence_ao_estagio ?estagioInd .
+		?estagioInd facepe:nm_estagio ?estagio .
+		OPTIONAL { ?estagioInd facepe:nr_ordem_estagio ?ordemEstagio }
+	}
+	OPTIONAL { ?editalInd facepe:vinculado_a_programa ?programaInd }
+}
+GROUP BY ?programa ?estagio ?ordemEstagio
+ORDER BY DESC(?qtdEditais) ?programa

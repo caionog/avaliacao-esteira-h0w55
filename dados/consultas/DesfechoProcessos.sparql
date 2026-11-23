@@ -1,0 +1,28 @@
+PREFIX facepe: <http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe#>
+
+# Desfecho dos processos (projetos e bolsas) dos programas da esteira: início e fim da
+# vigência, cancelamento e entrega do relatório final. Só os processos do extrato do AgilFAP
+# têm essas datas; os que só existem nos resultados publicados vêm sem elas (desfecho não
+# observado). Usada para o desfecho dos processos e para o tempo de espera entre o fim de um
+# processo e a próxima janela de edital do estágio seguinte.
+SELECT ?processo ?tipo ?programa ?ordem ?edital ?inicio ?fim ?cancelamento ?relatorioFinal
+WHERE {
+	{
+		?processo a facepe:Projeto ;
+			facepe:submetido_a ?editalInd .
+		BIND ("Projeto" AS ?tipo)
+	} UNION {
+		?processo a facepe:Bolsa ;
+			facepe:concedida_em ?editalInd .
+		BIND ("Bolsa" AS ?tipo)
+	}
+	?editalInd facepe:id_edital ?edital ;
+		facepe:vinculado_a_programa ?programaInd .
+	?programaInd facepe:nm_programa_cti ?programa ;
+		facepe:pertence_ao_estagio/facepe:nr_ordem_estagio ?ordem .
+	OPTIONAL { ?processo facepe:dt_inicio ?inicio }
+	OPTIONAL { ?processo facepe:dt_fim ?fim }
+	OPTIONAL { ?processo facepe:dt_cancelamento ?cancelamento }
+	OPTIONAL { ?processo facepe:dt_relatorio_final ?relatorioFinal }
+}
+ORDER BY ?ordem ?programa ?edital ?processo

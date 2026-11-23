@@ -1,0 +1,55 @@
+PREFIX facepe: <http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe#>
+
+# Trajetória dos projetos do Tecnova III (edital 23/2024) na FACEPE, antes e depois dele:
+# cada outro processo da empresa executora (?via = "empresa": projetos que ela executou) e
+# do coordenador (?via = "coordenador": projetos que coordenou e bolsas que recebeu), com
+# programa, estágio, edital e data de referência. ?mesmaEmpresa diz se o projeto
+# coordenado foi executado pela mesma empresa do projeto do Tecnova III; ?comEmpresa, se o
+# processo tem empresa identificada (bolsas nunca têm). Usada no gráfico do estudo de caso
+# (anonimizado) e para contar as passagens anteriores pela esteira.
+SELECT DISTINCT ?projeto ?inicio ?via ?papel ?mesmaEmpresa ?comEmpresa ?programa ?estagio ?ordemEstagio ?edital ?data
+WHERE {
+	?projetoInd facepe:submetido_a ?editalTecnova ;
+		facepe:id_projeto ?projeto ;
+		facepe:dt_referencia ?inicio .
+	?editalTecnova facepe:id_edital "23/2024" ;
+		facepe:vinculado_a_programa/facepe:nm_programa_cti "Tecnova" .
+	{
+		?projetoInd facepe:executado_por ?empresaInd .
+		?processo facepe:executado_por ?empresaInd ;
+			facepe:submetido_a ?editalInd .
+		BIND ("empresa" AS ?via)
+		BIND ("executou projeto" AS ?papel)
+		BIND (true AS ?mesmaEmpresa)
+		BIND (true AS ?comEmpresa)
+	} UNION {
+		?coordenadorInd facepe:coordena ?projetoInd ;
+			facepe:id_pessoa ?idCoordenador .
+		?pessoa facepe:id_pessoa ?idCoordenador .
+		{
+			?pessoa facepe:coordena ?processo .
+			?processo facepe:submetido_a ?editalInd .
+			BIND ("coordenou projeto" AS ?papel)
+		} UNION {
+			?pessoa facepe:recebe ?processo .
+			?processo facepe:concedida_em ?editalInd .
+			BIND ("recebeu bolsa" AS ?papel)
+		}
+		OPTIONAL { ?projetoInd facepe:executado_por ?empresaTecnova }
+		OPTIONAL { ?processo facepe:executado_por ?empresaProcesso }
+		BIND ("coordenador" AS ?via)
+		BIND (BOUND(?empresaTecnova) && BOUND(?empresaProcesso) && ?empresaTecnova = ?empresaProcesso AS ?mesmaEmpresa)
+		BIND (BOUND(?empresaProcesso) AS ?comEmpresa)
+	}
+	FILTER (?processo != ?projetoInd)
+	?editalInd facepe:id_edital ?edital ;
+		facepe:vinculado_a_programa ?programaInd .
+	?programaInd facepe:nm_programa_cti ?programa .
+	OPTIONAL {
+		?programaInd facepe:pertence_ao_estagio ?estagioInd .
+		?estagioInd facepe:nm_estagio ?estagio .
+		OPTIONAL { ?estagioInd facepe:nr_ordem_estagio ?ordemEstagio }
+	}
+	OPTIONAL { ?processo facepe:dt_referencia ?data }
+}
+ORDER BY ?inicio ?projeto ?data ?via

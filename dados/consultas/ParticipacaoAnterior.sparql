@@ -1,0 +1,101 @@
+PREFIX facepe: <http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe#>
+
+# Hipótese: quem coordena um projeto num programa de Operação ou de Aceleração já tinha
+# participado antes de algum programa da FACEPE. Para cada pessoa e cada um desses dois
+# estágios, ?inicio é a data de referência do seu primeiro projeto no estágio, e cada
+# coluna booleana diz se, antes dessa data, ela já tinha:
+#   - coordenado um projeto em programa de Ideação, Operação ou Aceleração, ou em
+#     programa sem estágio definido (?coordenouOutro: "A classificar");
+#   - recebido uma bolsa de programa de inovação (BFI, BCT) ou de pós-graduação (IBPG);
+#   - orientado um projeto ou uma bolsa.
+# Para a versão só com a esteira (os programas de Ideação, Operação e Aceleração, sem os
+# "A classificar" nem a pós-graduação), ?bolsaEsteira e ?orientouEsteira restringem a bolsa e
+# a orientação a editais de programas da esteira; as colunas de coordenação por estágio já
+# separam a esteira (?coordenouIdeacao/Operacao/Aceleracao) do resto (?coordenouOutro).
+# Estágios comparados pela ordem (1 = Ideação, 2 = Operação, 3 = Aceleração); datas são
+# texto AAAA-MM-DD, que se compara na ordem cronológica.
+SELECT ?id ?nome ?estagioAlvo ?ordemAlvo ?inicio
+       ?coordenouIdeacao ?coordenouOperacao ?coordenouAceleracao ?coordenouOutro
+       ?bolsaInovacao ?bolsaPosGraduacao ?orientou ?bolsaEsteira ?orientouEsteira
+WHERE {
+	{
+		SELECT ?id (SAMPLE(?nomePessoa) AS ?nome) ?estagioAlvo ?ordemAlvo (MIN(?d) AS ?inicio)
+		WHERE {
+			?pessoa facepe:id_pessoa ?id ;
+				facepe:nm_pessoa ?nomePessoa ;
+				facepe:coordena ?projeto .
+			?projeto facepe:dt_referencia ?d ;
+				facepe:submetido_a/facepe:vinculado_a_programa/facepe:pertence_ao_estagio ?estagioInd .
+			?estagioInd facepe:nm_estagio ?estagioAlvo ;
+				facepe:nr_ordem_estagio ?ordemAlvo .
+			FILTER (?ordemAlvo IN (2, 3))
+		}
+		GROUP BY ?id ?estagioAlvo ?ordemAlvo
+	}
+	BIND (EXISTS {
+		?p1 facepe:id_pessoa ?id ;
+			facepe:coordena ?projeto1 .
+		?projeto1 facepe:dt_referencia ?d1 ;
+			facepe:submetido_a/facepe:vinculado_a_programa/facepe:pertence_ao_estagio/facepe:nr_ordem_estagio 1 .
+		FILTER (?d1 < ?inicio)
+	} AS ?coordenouIdeacao)
+	BIND (EXISTS {
+		?p2 facepe:id_pessoa ?id ;
+			facepe:coordena ?projeto2 .
+		?projeto2 facepe:dt_referencia ?d2 ;
+			facepe:submetido_a/facepe:vinculado_a_programa/facepe:pertence_ao_estagio/facepe:nr_ordem_estagio 2 .
+		FILTER (?d2 < ?inicio)
+	} AS ?coordenouOperacao)
+	BIND (EXISTS {
+		?p3 facepe:id_pessoa ?id ;
+			facepe:coordena ?projeto3 .
+		?projeto3 facepe:dt_referencia ?d3 ;
+			facepe:submetido_a/facepe:vinculado_a_programa/facepe:pertence_ao_estagio/facepe:nr_ordem_estagio 3 .
+		FILTER (?d3 < ?inicio)
+	} AS ?coordenouAceleracao)
+	BIND (EXISTS {
+		?p4 facepe:id_pessoa ?id ;
+			facepe:coordena ?projeto4 .
+		?projeto4 facepe:dt_referencia ?d4 ;
+			facepe:submetido_a/facepe:vinculado_a_programa ?programa4 .
+		FILTER NOT EXISTS { ?programa4 facepe:pertence_ao_estagio/facepe:nr_ordem_estagio ?ordem4 }
+		FILTER (?d4 < ?inicio)
+	} AS ?coordenouOutro)
+	BIND (EXISTS {
+		?p5 facepe:id_pessoa ?id ;
+			facepe:recebe ?bolsa5 .
+		?bolsa5 facepe:dt_referencia ?d5 ;
+			facepe:cd_modalidade ?modalidade5 .
+		FILTER (?modalidade5 != "IBPG" && ?d5 < ?inicio)
+	} AS ?bolsaInovacao)
+	BIND (EXISTS {
+		?p6 facepe:id_pessoa ?id ;
+			facepe:recebe ?bolsa6 .
+		?bolsa6 facepe:dt_referencia ?d6 ;
+			facepe:cd_modalidade "IBPG" .
+		FILTER (?d6 < ?inicio)
+	} AS ?bolsaPosGraduacao)
+	BIND (EXISTS {
+		?p7 facepe:id_pessoa ?id .
+		{ ?p7 facepe:orienta_projeto ?orientado7 } UNION { ?p7 facepe:orienta_bolsa ?orientado7 }
+		?orientado7 facepe:dt_referencia ?d7 .
+		FILTER (?d7 < ?inicio)
+	} AS ?orientou)
+	BIND (EXISTS {
+		?p8 facepe:id_pessoa ?id ;
+			facepe:recebe ?bolsa8 .
+		?bolsa8 facepe:dt_referencia ?d8 ;
+			facepe:concedida_em/facepe:vinculado_a_programa/facepe:pertence_ao_estagio/facepe:nr_ordem_estagio ?ordem8 .
+		FILTER (?ordem8 IN (1, 2, 3) && ?d8 < ?inicio)
+	} AS ?bolsaEsteira)
+	BIND (EXISTS {
+		?p9 facepe:id_pessoa ?id .
+		{ ?p9 facepe:orienta_projeto ?orientado9 . ?orientado9 facepe:submetido_a ?edital9 }
+		UNION
+		{ ?p9 facepe:orienta_bolsa ?orientado9 . ?orientado9 facepe:concedida_em ?edital9 }
+		?orientado9 facepe:dt_referencia ?d9 .
+		?edital9 facepe:vinculado_a_programa/facepe:pertence_ao_estagio/facepe:nr_ordem_estagio ?ordem9 .
+		FILTER (?ordem9 IN (1, 2, 3) && ?d9 < ?inicio)
+	} AS ?orientouEsteira)
+}
+ORDER BY ?ordemAlvo ?inicio ?id

@@ -1,0 +1,30 @@
+PREFIX facepe: <http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe#>
+
+# Cada vez que uma pessoa foi beneficiária num edital (coordenou um projeto ou recebeu
+# uma bolsa), com o estágio do programa e a data de referência do processo (início da
+# vigência ou, sem ela, data do resultado do edital, AAAA-MM-DD). Usada para medir quem
+# já tinha sido apoiado antes de cada edital.
+SELECT DISTINCT ?id ?nome ?papel ?programa ?estagio ?ordemEstagio ?edital ?data
+WHERE {
+	?pessoa facepe:id_pessoa ?id ;
+		facepe:nm_pessoa ?nome .
+	{
+		?pessoa facepe:coordena ?processo .
+		?processo facepe:submetido_a ?editalInd .
+		BIND ("coordenou projeto" AS ?papel)
+	} UNION {
+		?pessoa facepe:recebe ?processo .
+		?processo facepe:concedida_em ?editalInd .
+		BIND ("recebeu bolsa" AS ?papel)
+	}
+	?editalInd facepe:id_edital ?edital ;
+		facepe:vinculado_a_programa ?programaInd .
+	?programaInd facepe:nm_programa_cti ?programa .
+	OPTIONAL {
+		?programaInd facepe:pertence_ao_estagio ?estagioInd .
+		?estagioInd facepe:nm_estagio ?estagio .
+		OPTIONAL { ?estagioInd facepe:nr_ordem_estagio ?ordemEstagio }
+	}
+	OPTIONAL { ?processo facepe:dt_referencia ?data }
+}
+ORDER BY ?programa ?edital ?id

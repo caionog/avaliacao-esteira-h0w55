@@ -1,0 +1,24 @@
+PREFIX facepe: <http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe#>
+
+# Calendário dos editais da esteira (programas de Ideação, Operação e Aceleração): a primeira
+# janela de entrada de cada edital (lançamento, fim da submissão depois das prorrogações e a
+# data original, resultado previsto e publicado), a estrutura da seleção (única, fases, rodadas,
+# fluxo contínuo) e o número de documentos que alteraram o cronograma. Datas em AAAA-MM-DD.
+SELECT ?programa ?estagio ?ordem ?edital ?lancamento ?fimSubmissao ?fimSubmissaoOriginal
+       ?resultadoPrevisto ?resultadoPublicado ?estrutura ?alteracoes
+WHERE {
+	?editalInd facepe:id_edital ?edital ;
+		facepe:vinculado_a_programa ?programaInd .
+	?programaInd facepe:nm_programa_cti ?programa ;
+		facepe:pertence_ao_estagio ?estagioInd .
+	?estagioInd facepe:nm_estagio ?estagio ;
+		facepe:nr_ordem_estagio ?ordem .
+	OPTIONAL { ?editalInd facepe:dt_lancamento ?lancamento }
+	OPTIONAL { ?editalInd facepe:dt_fim_submissao ?fimSubmissao }
+	OPTIONAL { ?editalInd facepe:dt_fim_submissao_original ?fimSubmissaoOriginal }
+	OPTIONAL { ?editalInd facepe:dt_resultado_previsto ?resultadoPrevisto }
+	OPTIONAL { ?editalInd facepe:dt_resultado_publicado ?resultadoPublicado }
+	OPTIONAL { ?editalInd facepe:ds_estrutura_selecao ?estrutura }
+	OPTIONAL { ?editalInd facepe:nr_alteracoes_cronograma ?alteracoes }
+}
+ORDER BY ?ordem ?programa ?lancamento

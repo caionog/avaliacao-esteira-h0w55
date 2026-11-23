@@ -1,0 +1,50 @@
+# Publica a versão para avaliação do painel no GitHub Pages, só dentro da janela de datas
+# definida nas variáveis do repositório (Settings > Secrets and variables > Actions > Variables):
+#   PUBLICAR_DE   (opcional) primeiro dia no ar, AAAA-MM-DD
+#   PUBLICAR_ATE  último dia no ar, AAAA-MM-DD (sem ela, o site não vai ao ar)
+# Roda a cada envio (push), à mão (Actions > Publicar > Run workflow) e todo dia às 00:10 de
+# Recife. Fora da janela, publica no lugar do site a página "fora do ar".
+name: Publicar
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "10 3 * * *"
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Escolher o que publicar
+        env:
+          DE: ${{ vars.PUBLICAR_DE }}
+          ATE: ${{ vars.PUBLICAR_ATE }}
+        run: |
+          hoje=$(TZ=America/Recife date +%F)
+          mkdir _publicar
+          if [ -z "$ATE" ] || [[ "$hoje" > "$ATE" ]] || { [ -n "$DE" ] && [[ "$hoje" < "$DE" ]]; }; then
+            echo "Fora da janela (de '$DE' até '$ATE'; hoje $hoje): publica a página fora do ar."
+            cp fora-do-ar/index.html _publicar/index.html
+            cp robots.txt _publicar/
+          else
+            echo "Dentro da janela (de '$DE' até '$ATE'; hoje $hoje): publica o site."
+            rsync -a --exclude '.git*' --exclude '.github' --exclude '.painel-site' --exclude 'fora-do-ar' \
+              --exclude '_publicar' --exclude 'README.md' ./ _publicar/
+            sed -i "s/\"ate\": \"[0-9-]*\"/\"ate\": \"$ATE\"/" _publicar/js/config.js
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _publicar
+      - id: deploy
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,29 @@
+PREFIX facepe: <http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe#>
+
+# As 10 pessoas que coordenaram projetos em mais editais (só quem coordenou em mais de um), com
+# os editais e programas de cada uma. Agrupa por id_pessoa. Não alimenta mais nenhum gráfico
+# (desde 19/11/2026, o de trajetórias usa ParticipacoesComData); fica como consulta de exemplo.
+SELECT DISTINCT ?nome ?qtdEditais ?programa ?edital
+WHERE {
+	{
+		SELECT ?id (SAMPLE(?nomePessoa) AS ?nome) (COUNT(DISTINCT ?editalInd) AS ?qtdEditais)
+		WHERE {
+			?coordenador facepe:id_pessoa ?id ;
+				facepe:nm_pessoa ?nomePessoa ;
+				facepe:coordena ?projeto .
+			?projeto facepe:submetido_a ?editalInd .
+		}
+		GROUP BY ?id
+		HAVING (COUNT(DISTINCT ?editalInd) > 1)
+		ORDER BY DESC(?qtdEditais) ?nome
+		LIMIT 10
+	}
+
+	?coordenador facepe:id_pessoa ?id ;
+		facepe:coordena ?projeto .
+	?projeto facepe:submetido_a ?editalInd .
+	?editalInd facepe:id_edital ?edital ;
+		facepe:vinculado_a_programa ?programaInd .
+	?programaInd facepe:nm_programa_cti ?programa .
+}
+ORDER BY DESC(?qtdEditais) ?nome ?programa ?edital

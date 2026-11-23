@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel da esteira — FACEPE</title>
+  <link rel="stylesheet" href="estilo.css?v=6b0450ad">
+</head>
+<body>
+<header class="topo">
+  <div class="topo-linha">
+    <div class="marca-titulo">
+      <h1>Painel da esteira de inovação</h1>
+      <span class="subtitulo">FACEPE · Ideação → Operação → Aceleração</span>
+    </div>
+    <div class="topo-controles">
+      <span class="selo-local" data-so-local title="Os dados derivam do extrato privado do AgilFAP. Não publique este painel nem painel/dados/.">Uso local · não publicar</span>
+      <span class="selo-local" data-so-site hidden title="Enviado só a convidados: por favor, não compartilhe o link.">Versão para avaliação · até <span data-site-ate></span></span>
+      <a id="comentar" class="botao-comentar" data-so-site hidden href="#" target="_blank" rel="noopener">Comentar esta página</a>
+      <label class="alternar"><input type="checkbox" id="ocultar-nomes"> Ocultar nomes</label>
+    </div>
+  </div>
+  <nav class="abas" aria-label="Seções do painel">
+    <a href="#inicio" data-aba="inicio"><span class="num">1</span>Início</a>
+    <a href="#trilha" data-aba="trilha"><span class="num">2</span>A trilha existe?</a>
+    <a href="#circulacao" data-aba="circulacao"><span class="num">3</span>Como se circula</a>
+    <a href="#interrupcao" data-aba="interrupcao"><span class="num">4</span>Onde se interrompe</a>
+    <a href="#proposta" data-aba="proposta"><span class="num">5</span>O que propomos</a>
+    <a href="#conclusao" data-aba="conclusao"><span class="num">6</span>Conclusão</a>
+    <span class="abas-sep" aria-hidden="true">Explorar</span>
+    <a href="#graficos" data-aba="graficos">Gráficos</a>
+    <a href="#perguntar" data-aba="perguntar">Perguntar</a>
+    <a href="#pilha" data-aba="pilha">Como funciona</a>
+  </nav>
+</header>
+
+<main>
+  <!-- ── Introdução ───────────────────────────────────────────────────────── -->
+  <section id="aba-inicio" class="aba" aria-labelledby="t-inicio">
+    <div class="abertura">
+      <div class="capitulo-numero">Capítulo 1 de 6</div>
+      <h2 id="t-inicio">A esteira de inovação da FACEPE funciona como trilha?</h2>
+      <p class="lead">A FACEPE organiza os seus programas de fomento ao empreendedorismo inovador numa
+        <strong>esteira</strong> de três estágios, <span class="est-texto est-1-texto">Ideação</span>,
+        <span class="est-texto est-2-texto">Operação</span> e <span class="est-texto est-3-texto">Aceleração</span>,
+        pensada como uma trilha: quem começa num programa de Ideação seguiria para a Operação e chegaria à Aceleração.
+        Este trabalho de conclusão de curso (Ciência da Computação, UFRPE) usa os dados da própria FACEPE para
+        verificar se isso acontece: as pessoas e as empresas que chegam aos programas mais avançados passaram antes
+        pelos programas dos estágios anteriores?</p>
+    </div>
+
+    <div class="tres-colunas">
+      <div class="cartao-texto">
+        <h4>Por que este trabalho existe</h4>
+        <p>O AgilFAP, o sistema de gestão da FACEPE, registra cada processo dentro do seu edital. Ele acompanha bem cada
+          programa, mas não mostra a trajetória de quem passa por vários. Para isso é preciso juntar os registros de
+          todos os editais e ligá-los pelas pessoas e pelas empresas. Sem essa visão, não dá para saber se a esteira
+          cumpre o papel de trilha, nem onde ela se interrompe.</p>
+      </div>
+      <div class="cartao-texto">
+        <h4>O que ele faz</h4>
+        <p>Junta o extrato do AgilFAP e os resultados publicados no site da FACEPE num único modelo de dados (uma
+          ontologia), em que editais, programas, processos, pessoas e empresas estão ligados. Sobre esse modelo,
+          consultas respondem a perguntas sobre a trilha: quem passou de um estágio a outro, quanto tempo levou e onde
+          a trilha para.</p>
+      </div>
+      <div class="cartao-texto">
+        <h4>O que ele propõe</h4>
+        <p>Evidências sobre a esteira, contadas nos <a href="#trilha">capítulos seguintes</a>; uma
+          <a href="#proposta">proposta de calendário</a> de editais, para que quem termina um estágio encontre logo o
+          edital do seguinte; e este painel, para que os gestores da FACEPE confiram os resultados e respondam às
+          perguntas que só eles sabem responder.</p>
+      </div>
+    </div>
+
+    <h3>Os 18 programas da esteira</h3>
+    <p class="nota">Os programas das três colunas do pôster "Iniciativas em Inovação" da FACEPE, com o papel de cada
+      um (resumido do anúncio oficial do edital), o público, os dados na base e de onde vêm e para onde vão as pessoas
+      apoiadas por mais de um programa. Os demais programas continuam na base, mas ficam fora das análises. Clique na
+      imagem para ampliar.</p>
+    <figure class="figura mapa-esteira">
+      <button type="button" class="imagem-botao" data-ampliar aria-label="Ampliar o mapa da esteira">
+        <img src="dados/graficos/mapa_esteira.png?v=6b0450ad" alt="Mapa da esteira: os 18 programas em três colunas (Ideação,
+          Operação e Aceleração), cada um com logotipo, papel, público, dados e fluxos de pessoas"></button>
+    </figure>
+
+    <h3>De onde vêm os dados</h3>
+    <div class="duas-colunas">
+      <div class="cartao-texto">
+        <h4>Extrato do AgilFAP</h4>
+        <p>Fonte principal: o extrato da base de gestão da FACEPE ("Planilhão"), com os processos de inovação de 2014
+          a 2025 e as bolsas de pós-graduação desde 2006. Pessoas e empresas cujo nome não foi publicado aparecem
+          por pseudônimo.</p>
+      </div>
+      <div class="cartao-texto">
+        <h4>Resultados publicados</h4>
+        <p>Fonte complementar: os resultados em PDF do site da FACEPE (2010–2026) e os publicados só em notícias, para
+          os anos e programas que o extrato não cobre.</p>
+      </div>
+    </div>
+    <p class="nota">As duas fontes viram um grafo de conhecimento (ontologia + dados), consultado em SPARQL. Os gráficos e as respostas da aba Perguntar saem desse grafo.</p>
+
+    <h3>A base em números</h3>
+    <div class="numeros" id="numeros"></div>
+    <p class="nota" id="meta-grafo">Carregando o grafo…</p>
+    <div id="consulta-numeros"></div>
+
+    <h3>O caminho deste painel</h3>
+    <p class="nota">Cada aba numerada responde a uma pergunta que nasce da anterior, até a proposta e a conclusão.</p>
+    <ol class="roteiro" id="roteiro"></ol>
+    <a class="botao-proximo" href="#trilha">Começar: A trilha existe? →</a>
+
+    <h3>Para explorar</h3>
+    <ul class="guia">
+      <li><a href="#graficos"><strong>Gráficos</strong></a>: todos os gráficos, cada um na sua página, com a análise, como
+        ler, as ressalvas e a consulta de onde saiu.</li>
+      <li data-so-local><a href="#perguntar"><strong>Perguntar</strong></a>: perguntas em português convertidas em consultas ao
+        grafo, para qualquer edital.</li>
+      <li data-so-site hidden><a href="#perguntar"><strong>Perguntar</strong></a>: perguntas em português e consultas
+        SPARQL que rodam no seu navegador, ao vivo, sobre a parte pública da base (vocabulário, programas, editais e
+        calendário).</li>
+      <li><a href="#pilha"><strong>Como funciona</strong></a>: da fonte ao gráfico — a ontologia, o modelo e as
+        consultas SPARQL de onde sai cada gráfico.</li>
+      <li data-so-site data-com-formulario hidden><strong>Comentar esta página</strong> (botão no alto): abre um formulário curto, já com o
+        nome da página aberta, para você deixar a sua opinião, uma correção ou uma pergunta.</li>
+    </ul>
+
+    <details class="glossario">
+      <summary>Definições usadas no painel</summary>
+      <dl>
+        <dt>Esteira</dt><dd>Os 18 programas das três colunas do pôster da FACEPE (Ideação, Operação, Aceleração).</dd>
+        <dt>Participação</dt><dd>Coordenar um projeto ou receber uma bolsa: no extrato, processo com ao menos um
+          pagamento; nos resultados publicados, proposta aprovada.</dd>
+        <dt>Passagem anterior</dt><dd>Participação num programa da esteira com data anterior à do edital ou estágio
+          analisado.</dd>
+        <dt>Empresa</dt><dd>A instituição executora de um projeto de subvenção, identificada pela sigla do extrato
+          (sem CNPJ) ou pela razão social publicada.</dd>
+        <dt>Orientação</dt><dd>Orientar um projeto ou uma bolsa; ligada à pessoa só pelo nome, por isso tratada como
+          evidência mais fraca.</dd>
+        <dt>Pessoa</dt><dd>Identificada pelo pseudônimo do CPF no extrato ou, quando só existe nos PDFs, pelo nome
+          publicado.</dd>
+      </dl>
+    </details>
+
+    <div class="aviso" data-so-local>Uso local. Os dados derivam do extrato privado do AgilFAP (pessoas e empresas pseudonimizadas
+      quando o nome não foi publicado): não publique este painel nem os dados de <code>painel/dados/</code>.</div>
+    <div class="aviso" data-so-site hidden>Versão para avaliação, enviada só a convidados e no ar até
+      <span data-site-ate></span>: por favor, não compartilhe o link. Ela mostra números agregados e os gráficos com os
+      nomes de pessoas e empresas como a FACEPE os publicou; quem não teve o nome publicado aparece por pseudônimo, e
+      nenhum CPF aparece. A aba Perguntar consulta, no seu navegador, só a parte pública da base (vocabulário, programas,
+      editais e calendário); as consultas sobre pessoas, empresas e processos ficam na versão local, porque esses dados
+      vêm do extrato do AgilFAP cedido pela FACEPE.</div>
+  </section>
+
+  <!-- ── Gráficos ─────────────────────────────────────────────────────────── -->
+  <section id="aba-graficos" class="aba" aria-labelledby="t-graficos" hidden>
+    <h2 id="t-graficos" class="visualmente-oculto">Gráficos</h2>
+    <div class="graficos-layout">
+      <nav class="lista-graficos" id="lista-graficos" aria-label="Lista de gráficos"></nav>
+      <article class="grafico-detalhe" id="grafico-detalhe" aria-live="polite"></article>
+    </div>
+  </section>
+
+  <!-- ── Capítulos 2 a 5 (textos em js/conteudo.js, CAPITULOS) ─────────────── -->
+  <section id="aba-trilha" class="aba capitulo" aria-labelledby="t-trilha" hidden><div id="cap-trilha"></div></section>
+
+  <section id="aba-circulacao" class="aba capitulo" aria-labelledby="t-circulacao" hidden>
+    <div id="cap-circulacao"></div>
+  </section>
+
+  <section id="aba-interrupcao" class="aba capitulo" aria-labelledby="t-interrupcao" hidden>
+    <div id="cap-interrupcao"></div>
+    <!-- A linha do tempo interativa: o renderCapitulos() a põe no lugar do bloco "calendario". -->
+    <div id="bloco-calendario" class="bloco-calendario">
+      <p class="nota">Passe o mouse sobre uma barra para ver as datas; clique nela para os detalhes<span
+        data-so-local> e para consultar o edital</span>.</p>
+    <div class="cal-controles">
+      <fieldset>
+        <legend>Estágios</legend>
+        <label><input type="checkbox" class="cal-estagio-filtro" value="1" checked> Ideação</label>
+        <label><input type="checkbox" class="cal-estagio-filtro" value="2" checked> Operação</label>
+        <label><input type="checkbox" class="cal-estagio-filtro" value="3" checked> Aceleração</label>
+      </fieldset>
+      <label>Desde
+        <select id="cal-desde"><option>2014</option><option selected>2019</option><option>2023</option></select>
+      </label>
+      <label><input type="checkbox" id="cal-previsto" checked> Mostrar o resultado previsto</label>
+    </div>
+    <div class="legenda cal-legenda">
+      <span><span class="marca empresa est-2"></span>janela de submissão (lançamento → fim)</span>
+      <span><span class="marca empresa cal-marca-hachura"></span>prorrogação</span>
+      <span><span class="cal-marca-previsto"></span>resultado previsto</span>
+      <span><span class="cal-marca-publicado"></span>resultado publicado</span>
+      <span><span class="cal-marca-lacuna"></span>12 meses ou mais sem janela no estágio</span>
+    </div>
+    <figure class="figura cal-figura"><div id="cal-grafico"><p class="nota">Carregando…</p></div></figure>
+    <div id="consulta-calendario"></div>
+    <div id="cal-detalhe" class="cal-detalhe" hidden></div>
+    <div class="destaques" id="cal-resumo"></div>
+      <details class="glossario datas-editais">
+        <summary>Ver as datas de todos os editais</summary>
+    <p class="nota">Nos editais com fases, rodadas ou fluxo contínuo, as datas são as da primeira janela. Fontes: página
+      de editais do site da FACEPE e cronogramas publicados (conferidos à mão nos casos com fases, rodadas ou
+      prorrogações). O Global.PE 29/2026 não tem lançamento nem cronograma publicados.</p>
+        <div id="cal-tabela"></div>
+      </details>
+    </div>
+  </section>
+
+  <section id="aba-proposta" class="aba capitulo" aria-labelledby="t-proposta" hidden><div id="cap-proposta"></div></section>
+
+  <!-- ── Perguntar ────────────────────────────────────────────────────────── -->
+  <section id="aba-perguntar" class="aba" aria-labelledby="t-perguntar" hidden>
+    <h2 id="t-perguntar">Perguntar</h2>
+    <p class="lead">Escreva uma pergunta ou clique numa sugestão. O painel reconhece as perguntas previstas por
+      palavras-chave (sem IA), monta a consulta SPARQL correspondente e a executa no grafo; a consulta aparece abaixo
+      e pode ser editada.</p>
+    <form class="pergunta" id="form-pergunta">
+      <input id="pergunta" type="text" autocomplete="off" aria-label="Pergunta"
+             placeholder="Ex.: os projetos do Tecnova III passaram antes pela esteira?" disabled>
+      <button class="principal" id="botao-perguntar" type="submit" disabled>Perguntar</button>
+    </form>
+    <div class="aviso" data-so-site hidden>Nesta versão, as consultas rodam no seu navegador, ao vivo, sobre a
+      <strong>parte pública da base</strong>: o vocabulário da ontologia, os programas e os editais com o calendário
+      (<a href="dados/grafo-publico.ttl" download>baixar esse grafo em Turtle</a>). Pessoas, empresas e processos
+      ficam só na versão local, porque vêm do extrato do AgilFAP.</div>
+    <div class="chips" id="sugestoes" aria-label="Sugestões de perguntas"></div>
+    <div class="estado" id="estado" role="status"></div>
+    <div id="resultado"></div>
+    <details class="sparql" id="painel-sparql" hidden>
+      <summary>Consulta SPARQL gerada</summary>
+      <textarea id="sparql" spellcheck="false" aria-label="Consulta SPARQL"></textarea>
+      <button id="executar-sparql" type="button">Executar a consulta editada</button>
+    </details>
+    <h3>Exemplos de consulta SPARQL</h3>
+    <p class="nota">Perguntas que nenhum gráfico responde, escritas direto sobre a ontologia. Clique para executar e
+      depois edite a consulta à vontade: com o modelo pronto, uma pergunta nova é só uma consulta nova.</p>
+    <div class="chips" id="exemplos-sparql" aria-label="Exemplos de consulta SPARQL"></div>
+  </section>
+
+  <!-- ── Conclusão ────────────────────────────────────────────────────────── -->
+  <!-- ── Como funciona ────────────────────────────────────────────────────── -->
+  <section id="aba-pilha" class="aba" aria-labelledby="t-pilha" hidden>
+    <h2 id="t-pilha">Como funciona</h2>
+    <p class="lead">Os gráficos deste painel não são montados à mão: cada um sai de uma <strong>consulta SPARQL</strong>
+      a uma <strong>ontologia</strong>, o modelo que descreve programas, editais, processos, pessoas e empresas e as
+      relações entre eles. Com o modelo pronto, uma pergunta nova que os dados permitam responder vira uma consulta
+      nova, sem mexer na base.</p>
+
+    <ol class="fluxo" id="fluxo-pilha"></ol>
+
+    <h3>O modelo</h3>
+    <p class="nota">As classes, as relações e as propriedades abaixo foram lidas da própria ontologia, por três
+      consultas SPARQL (mostradas no fim desta seção)<span data-so-site hidden>; nesta versão para avaliação, as
+      respostas foram calculadas na exportação</span>. O número de cada classe conta os indivíduos no grafo, inclusive
+      os tipos inferidos pelo <em>reasoner</em> (por exemplo, quem coordena um projeto passa a ser também
+      Coordenador). <span class="exemplo-sem-valor">Tracejadas</span>: propriedades que o vocabulário prevê, mas que
+      nenhum dado preenche; por exemplo, o CPF (<code>nr_cpf</code>) nunca entra no grafo, porque as pessoas do
+      extrato são identificadas por pseudônimo.</p>
+    <div class="modelo-grade" id="modelo-classes"><p class="nota">Carregando…</p></div>
+    <h4 class="subtitulo-modelo">Relações entre as classes</h4>
+    <div class="tabela-rolagem"><table class="tabela-modelo" id="modelo-relacoes"></table></div>
+    <div id="consultas-modelo"></div>
+
+    <h3>As consultas</h3>
+    <p class="nota">Estas consultas ficam guardadas junto com a ontologia e rodam de novo sempre que a base é gerada
+      (etapa <code>consultas</code> do <em>pipeline</em>). Cada gráfico mostra, na sua página, a consulta de onde
+      saiu.</p>
+    <div class="lista-consultas" id="lista-consultas"><p class="nota">Carregando…</p></div>
+  </section>
+
+  <section id="aba-conclusao" class="aba" aria-labelledby="t-conclusao" hidden>
+    <div class="capitulo-numero">Capítulo 6 de 6</div>
+    <h2 id="t-conclusao">Conclusão</h2>
+    <p class="lead">A esteira funciona como trilha, mas só em parte.</p>
+
+    <h3>O caminho até aqui</h3>
+    <ol class="roteiro-resumo">
+      <li><a href="#trilha"><strong>A trilha existe</strong></a>: metade dos projetos do Tecnova III (9 de 19) veio de
+        programas anteriores da esteira, quase todos pela Operação. Mas ela não é o único caminho: na Aceleração, 19% dos
+        coordenadores passaram antes por ela.</li>
+      <li><a href="#circulacao"><strong>Mas se circula pouco</strong></a>: das 131 mudanças de programa, 63 são para o
+        lado; das pessoas e das empresas que entraram até setembro de 2024, só 11% e 19%, respectivamente, foram
+        apoiadas depois por outro programa da esteira. Não é por abandono: só 3% dos processos foram cancelados.</li>
+      <li><a href="#interrupcao"><strong>Ela se interrompe no tempo e no território</strong></a>: a Aceleração ficou 55
+        meses sem edital, e nenhum dos 111 projetos de Operação encerrados entre 2021 e 2023 encontrou um edital de
+        Aceleração em até três meses. E quanto mais avançado o estágio, mais concentrado na Região Metropolitana.</li>
+      <li><a href="#proposta"><strong>Por isso propomos</strong></a>: duas janelas fixas de Aceleração por ano, que
+        teriam alcançado 96% dos projetos de Operação em até três meses (foram 54%), e acompanhar a trilha a cada novo
+        extrato do AgilFAP.</li>
+    </ol>
+
+    <h3>Limites</h3>
+    <p>Os dados mostram só quem foi aprovado, e não quem tentou; parte dos editais recentes da esteira não veio no
+      extrato e aparece só pelos resultados publicados; as empresas são identificadas pela sigla ou pela razão social,
+      sem CNPJ. Por isso, as passagens anteriores e a continuidade são um piso: os números reais podem ser maiores. As
+      ressalvas de cada número estão na página de cada gráfico.</p>
+
+    <h3>Perguntas para a FACEPE</h3>
+    <p class="nota">As respostas mudam a leitura dos capítulos.<span data-so-site data-com-formulario hidden> Para
+      responder, use o botão "Responder" ao lado de cada pergunta ou "Comentar esta página", no alto.</span></p>
+    <ol class="perguntas-gestores" id="perguntas-gestores"></ol>
+
+    <h3>Próximos passos</h3>
+    <ul class="guia">
+      <li>Discutir a proposta de calendário com a FACEPE.</li>
+      <li>Receber as respostas a essas perguntas e, se possível, um extrato atualizado, com os editais que faltam, os
+        estudantes bolsistas das escolas e as propostas não aprovadas.</li>
+      <li>Refazer as consultas com os dados novos e atualizar este painel.</li>
+    </ul>
+    <p class="nota">Para ir além da narrativa: todos os gráficos na aba <a href="#graficos">Gráficos</a>, consultas ao
+      vivo na aba <a href="#perguntar">Perguntar</a> e o caminho dos dados na aba <a href="#pilha">Como funciona</a>.</p>
+  </section>
+
+  <footer>
+    <span data-so-site hidden>Trabalho de conclusão de curso em Ciência da Computação (UFRPE). Textos de análise com
+      números de <span id="atualizado-site"></span>. Versão para avaliação, no ar até <span data-site-ate></span>.</span>
+    <span data-so-local>Grafo: <code>ontologia/build/owl</code> (vocabulário, <i>description</i> e inferências do <i>reasoner</i>),
+    exportado por <code>painel/preparar.py</code> e consultado pelo Oxigraph em <code>painel/servir.py</code>.
+    Textos de análise: <code>painel/js/conteudo.js</code> (números de <span id="atualizado-em"></span>).
+    Ressalvas completas: <code>docs/ressalvas-resultados-facepe.md</code>.</span>
+  </footer>
+</main>
+
+<dialog id="ampliar" aria-label="Gráfico ampliado"><img alt=""><button type="button" class="fechar" aria-label="Fechar">×</button></dialog>
+<script type="module" src="js/painel.js?v=6b0450ad"></script>
+</body>
+</html>

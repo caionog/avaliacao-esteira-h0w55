@@ -1,0 +1,76 @@
+PREFIX facepe: <http://gic.ufrpe.br/facepe-inovacao/vocabulary/facepe#>
+
+# Estudo de caso: os projetos do Tecnova III (edital 23/2024), pela empresa executora e
+# pelo coordenador, já tinham passado pela esteira de programas de inovação da FACEPE?
+# Uma linha por projeto; ?inicio é a data de referência do projeto (início da vigência).
+# Colunas booleanas, sempre num outro edital e com data de referência anterior a ?inicio:
+#   ?empresaEsteira     a empresa executou um projeto num programa de Ideação, Operação ou
+#                       Aceleração (estágios 1 a 3 do pôster da FACEPE);
+#   ?empresaOutro       a empresa executou um projeto num programa "A classificar";
+#   ?coordEsteira       o coordenador coordenou um projeto ou recebeu uma bolsa num
+#                       programa dos estágios 1 a 3;
+#   ?coordOutro         o mesmo, num programa "A classificar";
+#   ?coordMesmaEmpresa  o coordenador já tinha coordenado um projeto da mesma empresa.
+# Bolsas de pós-graduação (PBPG, sem estágio) e orientações não contam aqui.
+SELECT ?projeto ?empresa ?coordenador ?nomeEmpresa ?nomeCoordenador ?inicio
+       ?empresaEsteira ?empresaOutro ?coordEsteira ?coordOutro ?coordMesmaEmpresa
+WHERE {
+	?projetoInd facepe:submetido_a ?editalTecnova ;
+		facepe:id_projeto ?projeto ;
+		facepe:dt_referencia ?inicio .
+	?editalTecnova facepe:id_edital "23/2024" ;
+		facepe:vinculado_a_programa/facepe:nm_programa_cti "Tecnova" .
+	OPTIONAL {
+		?projetoInd facepe:executado_por ?empresaInd .
+		?empresaInd facepe:id_organizacao ?empresa .
+		OPTIONAL { ?empresaInd facepe:nm_organizacao ?nomeEmpresa }
+	}
+	OPTIONAL {
+		?pessoa facepe:coordena ?projetoInd ;
+			facepe:id_pessoa ?coordenador .
+		OPTIONAL { ?pessoa facepe:nm_pessoa ?nomeCoordenador }
+	}
+	BIND (BOUND(?empresaInd) && EXISTS {
+		?projeto1 facepe:executado_por ?empresaInd ;
+			facepe:dt_referencia ?d1 ;
+			facepe:submetido_a ?edital1 .
+		?edital1 facepe:vinculado_a_programa/facepe:pertence_ao_estagio/facepe:nr_ordem_estagio ?ordem1 .
+		FILTER (?edital1 != ?editalTecnova && ?d1 < ?inicio)
+	} AS ?empresaEsteira)
+	BIND (BOUND(?empresaInd) && EXISTS {
+		?projeto2 facepe:executado_por ?empresaInd ;
+			facepe:dt_referencia ?d2 ;
+			facepe:submetido_a ?edital2 .
+		?edital2 facepe:vinculado_a_programa/facepe:pertence_ao_estagio ?estagio2 .
+		FILTER NOT EXISTS { ?estagio2 facepe:nr_ordem_estagio ?ordem2 }
+		FILTER (?edital2 != ?editalTecnova && ?d2 < ?inicio)
+	} AS ?empresaOutro)
+	BIND (BOUND(?coordenador) && EXISTS {
+		?pessoa3 facepe:id_pessoa ?coordenador .
+		{ ?pessoa3 facepe:coordena ?processo3 . ?processo3 facepe:submetido_a ?edital3 }
+		UNION
+		{ ?pessoa3 facepe:recebe ?processo3 . ?processo3 facepe:concedida_em ?edital3 }
+		?processo3 facepe:dt_referencia ?d3 .
+		?edital3 facepe:vinculado_a_programa/facepe:pertence_ao_estagio/facepe:nr_ordem_estagio ?ordem3 .
+		FILTER (?edital3 != ?editalTecnova && ?d3 < ?inicio)
+	} AS ?coordEsteira)
+	BIND (BOUND(?coordenador) && EXISTS {
+		?pessoa4 facepe:id_pessoa ?coordenador .
+		{ ?pessoa4 facepe:coordena ?processo4 . ?processo4 facepe:submetido_a ?edital4 }
+		UNION
+		{ ?pessoa4 facepe:recebe ?processo4 . ?processo4 facepe:concedida_em ?edital4 }
+		?processo4 facepe:dt_referencia ?d4 .
+		?edital4 facepe:vinculado_a_programa/facepe:pertence_ao_estagio ?estagio4 .
+		FILTER NOT EXISTS { ?estagio4 facepe:nr_ordem_estagio ?ordem4 }
+		FILTER (?edital4 != ?editalTecnova && ?d4 < ?inicio)
+	} AS ?coordOutro)
+	BIND (BOUND(?coordenador) && BOUND(?empresaInd) && EXISTS {
+		?pessoa5 facepe:id_pessoa ?coordenador ;
+			facepe:coordena ?projeto5 .
+		?projeto5 facepe:executado_por ?empresaInd ;
+			facepe:dt_referencia ?d5 ;
+			facepe:submetido_a ?edital5 .
+		FILTER (?edital5 != ?editalTecnova && ?d5 < ?inicio)
+	} AS ?coordMesmaEmpresa)
+}
+ORDER BY ?inicio ?projeto
