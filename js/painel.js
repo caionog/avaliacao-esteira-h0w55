@@ -2,11 +2,11 @@
 // perguntas e conclusão, em abas com endereço na URL (#inicio, #graficos/<id>, #hipoteses,
 // #perguntar, #conclusao).
 import { CONSULTA_CATALOGO, CONSULTA_MODELO_CLASSES, CONSULTA_MODELO_PROPRIEDADES, CONSULTA_MODELO_RELACOES, CONSULTA_NUMEROS,
-  EXEMPLOS_SPARQL, PERGUNTAS, consultaCalendario, definirCatalogo, reconhecer } from './perguntas.js?v=6b058330';
-import { ESTAGIOS, antes, depois, estagioDe, matriz, montarTrajetoria, resumir } from './analise.js?v=6b058330';
-import { ATUALIZADO_EM, CAPITULOS, GRAFICOS, GRUPOS, PERGUNTAS_GESTORES, PROPOSTA } from './conteudo.js?v=6b058330';
-import { dataBr, descricao, desenhar, lacunasLongas, mesAno, prepararEditais } from './calendario.js?v=6b058330';
-import { SITE } from './config.js?v=6b058330';
+  EXEMPLOS_SPARQL, PERGUNTAS, consultaCalendario, definirCatalogo, reconhecer } from './perguntas.js?v=6b059ef4';
+import { ESTAGIOS, antes, depois, estagioDe, matriz, montarTrajetoria, resumir } from './analise.js?v=6b059ef4';
+import { ATUALIZADO_EM, CAPITULOS, GRAFICOS, GRUPOS, PERGUNTAS_GESTORES, PROPOSTA } from './conteudo.js?v=6b059ef4';
+import { dataBr, descricao, desenhar, lacunasLongas, mesAno, prepararEditais } from './calendario.js?v=6b059ef4';
+import { SITE } from './config.js?v=6b059ef4';
 
 const $ = id => document.getElementById(id);
 // Na versão online, cada arquivo buscado leva a versão da exportação (?v=...), para o navegador não
