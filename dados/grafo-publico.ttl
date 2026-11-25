@@ -170,23 +170,23 @@ facepe:concedida_em <http://opencaesar.io/oml#type> <http://opencaesar.io/oml#Un
 	<http://opencaesar.io/oml#prefix> "facepe" ;
 	<http://opencaesar.io/oml#namespace> facepe: ;
 	a owl:Ontology .
-_:e537db70b9462383eefa5e6849f7f19e rdf:first facepe:Projeto ;
+_:fb529d0ba36ce5cb6fd0dcbb55fa5d1 rdf:first facepe:Projeto ;
 	rdf:rest rdf:nil .
-_:d2d84f167bed54714187c244207c163d rdf:first facepe:Programa_CTI ;
-	rdf:rest _:e537db70b9462383eefa5e6849f7f19e .
-_:aef8e946523c051c82c6f4337cc0e7a rdf:first facepe:Participante ;
-	rdf:rest _:d2d84f167bed54714187c244207c163d .
-_:faa2b6750beddb405016f37e866cc218 rdf:first facepe:ICT ;
-	rdf:rest _:aef8e946523c051c82c6f4337cc0e7a .
-_:baf91d9503c8474b95c0861e65bdfe10 rdf:first facepe:Estagio_Maturidade ;
-	rdf:rest _:faa2b6750beddb405016f37e866cc218 .
-_:c8bb6e80ac5b6674a63d2ae72523e83a rdf:first facepe:Empresa ;
-	rdf:rest _:baf91d9503c8474b95c0861e65bdfe10 .
-_:e48c60766e4e7911e2caf6547204ea18 rdf:first facepe:Edital ;
-	rdf:rest _:c8bb6e80ac5b6674a63d2ae72523e83a .
-_:b2e08d4e6f8c11d16a5955b2293b4114 rdf:first facepe:Bolsa ;
-	rdf:rest _:e48c60766e4e7911e2caf6547204ea18 .
-_:e3ec3d12c24121997110e8dfa89cba39 owl:members _:b2e08d4e6f8c11d16a5955b2293b4114 ;
+_:a14f677096b53fcf7c2a58fc2c7a0cc2 rdf:first facepe:Programa_CTI ;
+	rdf:rest _:fb529d0ba36ce5cb6fd0dcbb55fa5d1 .
+_:d6dc43732dafc567fa28f08f18a39f39 rdf:first facepe:Participante ;
+	rdf:rest _:a14f677096b53fcf7c2a58fc2c7a0cc2 .
+_:e7082ed4e1b2186b99534ea20d3940ae rdf:first facepe:ICT ;
+	rdf:rest _:d6dc43732dafc567fa28f08f18a39f39 .
+_:a120e277505cf58cad6575818620d4fc rdf:first facepe:Estagio_Maturidade ;
+	rdf:rest _:e7082ed4e1b2186b99534ea20d3940ae .
+_:b19639d7a6ed4ad476edfa8c5448b348 rdf:first facepe:Empresa ;
+	rdf:rest _:a120e277505cf58cad6575818620d4fc .
+_:a572d321426ff27ec71476d95d48140a rdf:first facepe:Edital ;
+	rdf:rest _:b19639d7a6ed4ad476edfa8c5448b348 .
+_:da7c5227f34daad7e26327bdc8f4c402 rdf:first facepe:Bolsa ;
+	rdf:rest _:a572d321426ff27ec71476d95d48140a .
+_:aca25e3a4ffd8fb9ac073467fb57588a owl:members _:da7c5227f34daad7e26327bdc8f4c402 ;
 	a owl:AllDisjointClasses .
 facepe:Projeto rdfs:subClassOf owl:Thing .
 facepe:Programa_CTI rdfs:subClassOf owl:Thing .

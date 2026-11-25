@@ -25,7 +25,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Escolher o que publicar
         env:
           DE: ${{ vars.PUBLICAR_DE }}
@@ -43,8 +43,8 @@ jobs:
               --exclude '_publicar' --exclude 'README.md' ./ _publicar/
             sed -i "s/\"ate\": \"[0-9-]*\"/\"ate\": \"$ATE\"/" _publicar/js/config.js
           fi
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: _publicar
       - id: deploy
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
