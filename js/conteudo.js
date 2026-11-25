@@ -81,7 +81,7 @@ export const GRAFICOS = [
       'Ordenando no tempo os programas da esteira em que cada pessoa coordenou projeto ou recebeu bolsa, houve <strong>131 mudanças</strong> de um programa para o seguinte: 44 subiram de estágio, <strong>63 ficaram no mesmo estágio</strong> e 24 voltaram. O movimento lateral é o mais comum.',
       'Os fluxos mais frequentes ficam dentro da Operação: do Pró-Startups Operação para o COMPET Soluções (7), entre o Centelha e o Pró-Startups Operação (7 e 6) e do COMPET Soluções para o Desafios.Gov (6). A subida mais frequente é do <strong>Desafios.Gov para o Global.PE e para o Inovação Aberta</strong> (6 cada).',
       'A matriz mostra também os 46 pares com 1 ou 2 pessoas (57 mudanças). Duas coisas aparecem só nela. O <strong>Pró-Startups Operação</strong> é o programa de onde mais gente sai (26 pessoas, para 10 programas diferentes), quase sempre para o lado ou de volta (só 4 sobem). O <strong>Desafios.Gov</strong> é a principal porta para a Aceleração: 16 das suas 17 saídas sobem de estágio, metade das 32 subidas da Operação para a Aceleração.',
-      'As voltas mais frequentes têm um padrão: 4 pessoas que passaram pelo Tecnova depois coordenaram projeto no Desafios.Gov (desafios de órgãos públicos); 3 coordenadores do Pró-Startups Operação depois receberam bolsa da Jornada REPE (empreendedorismo inovador nas ICTs); e outros 3 depois participaram do COMPET Superior (extensão tecnológica de universitários). Parecem menos um retrocesso do que o uso de programas com outra finalidade, leitura a confirmar com a FACEPE.',
+      'As voltas mais frequentes têm um padrão: 4 pessoas que passaram pelo Tecnova depois coordenaram projeto no Desafios.Gov (desafios de órgãos públicos); 3 coordenadores do Pró-Startups Operação depois receberam bolsa da Jornada REPE (empreendedorismo inovador nas ICTs); e outros 3 depois participaram do COMPET Superior (extensão tecnológica de universitários). Parecem menos um retrocesso do que o uso de programas com outra finalidade, leitura a confirmar com a SECTI-PE/FACEPE.',
       'Oito programas não têm nenhum fluxo de 3 ou mais pessoas: na Ideação, as duas escolas, a Residência Tecnológica e o PIBITI-PE; três programas com um só edital, recente (Pró-Startups Mulheres que Inovam, Transforma PE e COMPET Mulheres); e o COMPET Tração, sem edital na base.',
     ],
     comoLer: [
@@ -92,7 +92,7 @@ export const GRAFICOS = [
     ressalvas: [
       'Mudança de programa: o programa seguinte da pessoa, na ordem do tempo (data de referência dos processos). Só pessoas, não empresas.',
       'As 61 idas e vindas de professores entre o COMPET Médio-Tec e o Espaço CRIA não contam: os dois atendem escolas.',
-      'A leitura das voltas como uso de programas com outra finalidade ainda precisa ser confirmada com a FACEPE.',
+      'A leitura das voltas como uso de programas com outra finalidade ainda precisa ser confirmada com a SECTI-PE/FACEPE.',
       'Quando dois processos da mesma pessoa têm a mesma data em programas diferentes (11 pessoas), vem antes o edital mais antigo, cuja seleção foi feita primeiro.',
     ],
     fonte: { consultas: ['ParticipacoesNaEsteira'], script: 'figura_esteira.py' },
@@ -448,7 +448,7 @@ export const GRAFICOS = [
       'Encontrar janela: o edital do estágio seguinte estava aberto quando o processo terminou ou abriu em até três meses.',
     ],
     ressalvas: [
-      'É uma proposta para discutir com a FACEPE: o cálculo não conhece o orçamento, os prazos internos nem a capacidade de avaliação.',
+      'É uma proposta para discutir com a SECTI-PE/FACEPE: o cálculo não conhece o orçamento, os prazos internos nem a capacidade de avaliação.',
       'Uma janela aberta é a oportunidade de entrada, não a garantia de que a empresa se inscreve ou de que o programa serve a ela.',
       'Só os processos do extrato do AgilFAP têm data de término (na Operação, só projetos, o público da Aceleração), encerrados até três meses antes da data do extrato. As janelas simuladas duram o mesmo que a mediana das janelas do estágio (60 dias na Operação, 71 na Aceleração).',
     ],
@@ -629,7 +629,7 @@ export const CAPITULOS = [
       {
         titulo: 'Acompanhar a trilha, e não só cada programa',
         textos: [
-          'As consultas deste painel podem ser refeitas a cada novo extrato do AgilFAP. A cada ano, a FACEPE veria quem passou de um estágio para o seguinte, quanto tempo levou e onde a trilha parou, inclusive para as empresas do interior.',
+          'As consultas deste painel podem ser refeitas a cada novo extrato do AgilFAP. A cada ano, a SECTI-PE/FACEPE veria quem passou de um estágio para o seguinte, quanto tempo levou e onde a trilha parou, inclusive para as empresas do interior.',
           'O mesmo modelo de dados responde a perguntas novas sem mudar a base.',
         ],
         link: { href: '#pilha', texto: 'Ver como funciona →' },
@@ -648,7 +648,7 @@ export const PROPOSTA = {
     '<strong>Operação: uma janela em setembro e outubro</strong>, quando termina 81% da Ideação (o ano letivo), e outra em abril e maio. Em 2025 e 2026 o calendário já cumpriu esse papel; a proposta é manter essas janelas como regra.',
     'Os meses podem ser cumpridos por programas diferentes do estágio: o que importa para quem termina é encontrar algum edital do estágio seguinte aberto.',
   ],
-  ressalva: 'É uma proposta para discutir: o cálculo não conhece o orçamento, os prazos internos nem a capacidade de avaliação da FACEPE.',
+  ressalva: 'É uma proposta para discutir: o cálculo não conhece o orçamento, os prazos internos nem a capacidade de avaliação da SECTI-PE/FACEPE.',
   pergunta: 'Há restrições (orçamento, conselho, prazos legais) que impeçam janelas fixas nesses meses?',
   grafico: 'calendario-sugerido',
 };

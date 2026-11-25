@@ -1,7 +1,7 @@
-# Painel da esteira de inovação — versão para avaliação
+# Painel da Trilha de Programas de Empreendedorismo Inovador de Pernambuco — versão para avaliação
 
 Site estático gerado por `painel/exportar_site.py` (repositório do TCC), para os gestores da
-FACEPE avaliarem. Mostra números agregados e gráficos, alguns com nomes de pessoas e empresas
+SECTI-PE/FACEPE avaliarem. Mostra números agregados e gráficos, alguns com nomes de pessoas e empresas
 (publicados pela FACEPE ou, para empresas sem nome publicado, a sigla do AgilFAP); não contém o
 grafo, dados de processo nem CPF. Não edite à mão: exporte de novo e envie.
 

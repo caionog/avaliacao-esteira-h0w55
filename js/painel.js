@@ -2,11 +2,11 @@
 // perguntas e conclusão, em abas com endereço na URL (#inicio, #graficos/<id>, #hipoteses,
 // #perguntar, #conclusao).
 import { CONSULTA_CATALOGO, CONSULTA_MODELO_CLASSES, CONSULTA_MODELO_PROPRIEDADES, CONSULTA_MODELO_RELACOES, CONSULTA_NUMEROS,
-  EXEMPLOS_SPARQL, PERGUNTAS, consultaCalendario, definirCatalogo, reconhecer } from './perguntas.js?v=6b059ef4';
-import { ESTAGIOS, antes, depois, estagioDe, matriz, montarTrajetoria, resumir } from './analise.js?v=6b059ef4';
-import { ATUALIZADO_EM, CAPITULOS, GRAFICOS, GRUPOS, PERGUNTAS_GESTORES, PROPOSTA } from './conteudo.js?v=6b059ef4';
-import { dataBr, descricao, desenhar, lacunasLongas, mesAno, prepararEditais } from './calendario.js?v=6b059ef4';
-import { SITE } from './config.js?v=6b059ef4';
+  EXEMPLOS_SPARQL, PERGUNTAS, consultaCalendario, definirCatalogo, reconhecer } from './perguntas.js?v=6b06fcbd';
+import { ESTAGIOS, antes, depois, estagioDe, matriz, montarTrajetoria, resumir } from './analise.js?v=6b06fcbd';
+import { ATUALIZADO_EM, CAPITULOS, GRAFICOS, GRUPOS, PERGUNTAS_GESTORES, PROPOSTA } from './conteudo.js?v=6b06fcbd';
+import { dataBr, descricao, desenhar, lacunasLongas, mesAno, prepararEditais } from './calendario.js?v=6b06fcbd';
+import { SITE } from './config.js?v=6b06fcbd';
 
 const $ = id => document.getElementById(id);
 // Na versão online, cada arquivo buscado leva a versão da exportação (?v=...), para o navegador não
@@ -126,22 +126,12 @@ function paginaAtual() {
   return `Gráficos › ${g.titulo}${versoes.length > 1 ? ` (${versao.rotulo})` : ''}`;
 }
 
-/** Link do formulário: se terminar em "=" (link pré-preenchido do Google Forms), recebe a página. */
+/** Link do formulário de avaliação. Se terminar em "=" (link pré-preenchido do Google Forms), recebe a
+ *  página aberta; desde 25/11/2026 o formulário é o questionário de avaliação, sem esse campo, e o link é o simples. */
 function linkComentario() {
   return SITE.formulario.endsWith('=') ? SITE.formulario + encodeURIComponent(paginaAtual()) : SITE.formulario;
 }
 
-/** Link "Responder" de uma pergunta para a FACEPE: só na versão online com formulário. O texto
- *  da pergunta vai no campo pré-preenchido do formulário (o mesmo do nome da página). */
-function botaoResponder(pergunta) {
-  if (!SITE || !SITE.formulario) return '';
-  return ` <a class="responder" href="#" target="_blank" rel="noopener" data-responder="${esc(pergunta)}">Responder →</a>`;
-}
-
-function linkPergunta(pergunta) {
-  const texto = `Pergunta: ${pergunta}`;
-  return SITE.formulario.endsWith('=') ? SITE.formulario + encodeURIComponent(texto) : SITE.formulario;
-}
 
 /** Versões de um gráfico que podem ser mostradas: online, nunca as com nomes. */
 function versoesVisiveis(g) {
@@ -401,7 +391,7 @@ function htmlProposta() {
           <img src="${versionado('dados/graficos/calendario_sugerido.png')}" alt="Calendário sugerido: términos dos projetos por mês e as janelas sugeridas para o estágio seguinte"></button>
       </div>
       <p class="nota">${esc(p.ressalva)}</p>
-      <p class="pergunta-gestor"><strong>Pergunta para a FACEPE:</strong> ${esc(p.pergunta)}${botaoResponder(p.pergunta)}</p>
+      <p class="pergunta-gestor"><strong>Pergunta para a SECTI-PE/FACEPE:</strong> ${esc(p.pergunta)}</p>
       <a class="link-detalhe" href="#graficos/${esc(p.grafico)}">Ver o cálculo e as ressalvas →</a>
     </section>`;
 }
@@ -424,7 +414,7 @@ function htmlBloco(b) {
         <h3>${esc(b.titulo)}</h3>
         ${(b.textos || []).map(t => `<p>${esc(t)}</p>`).join('')}
         ${b.sugere ? `<p class="sugere"><strong>O que isso sugere:</strong> ${esc(b.sugere)}</p>` : ''}
-        ${b.pergunta ? `<p class="pergunta-gestor"><strong>Pergunta para a FACEPE:</strong> ${esc(b.pergunta)}${botaoResponder(b.pergunta)}</p>` : ''}
+        ${b.pergunta ? `<p class="pergunta-gestor"><strong>Pergunta para a SECTI-PE/FACEPE:</strong> ${esc(b.pergunta)}</p>` : ''}
         ${b.link ? `<a class="link-detalhe" href="${esc(b.link.href)}">${esc(b.link.texto)}</a>` : ''}
         ${g && !b.link ? `<a class="link-detalhe" href="#graficos/${esc(g.id)}">Ver a página do gráfico: análise, ressalvas e consulta →</a>` : ''}
       </div>
@@ -456,8 +446,8 @@ function renderCapitulos() {
   const slot = document.querySelector('[data-slot="calendario"]');
   if (slot) slot.replaceWith($('bloco-calendario'));
   $('roteiro').innerHTML = [...CAPITULOS.map((c, i) => `<li><a href="#${c.id}"><strong>${i + 2}. ${esc(c.aba)}</strong></a>: ${esc(c.titulo)}</li>`),
-    '<li><a href="#conclusao"><strong>6. Conclusão</strong></a>: a resposta, os limites, as perguntas para a FACEPE e os próximos passos.</li>'].join('');
-  $('perguntas-gestores').innerHTML = PERGUNTAS_GESTORES.map(t => `<li>${esc(t)}${botaoResponder(t)}</li>`).join('');
+    '<li><a href="#conclusao"><strong>6. Conclusão</strong></a>: a resposta, os limites, as perguntas para a SECTI-PE/FACEPE e os próximos passos.</li>'].join('');
+  $('perguntas-gestores').innerHTML = PERGUNTAS_GESTORES.map(t => `<li>${esc(t)}</li>`).join('');
 }
 
 // ── Consultas SPARQL e a aba "Como funciona" ──────────────────────────────────────
@@ -789,11 +779,6 @@ $('ampliar').addEventListener('click', () => $('ampliar').close());
 // O evento toggle não sobe pela árvore: escuta na fase de captura.
 document.addEventListener('toggle', e => {
   if (e.target.matches && e.target.matches('details[data-consulta]')) carregarConsulta(e.target);
-}, true);
-// "Responder": o link é montado no clique, com a pergunta.
-document.addEventListener('click', e => {
-  const responder = e.target.closest && e.target.closest('[data-responder]');
-  if (responder && SITE && SITE.formulario) responder.href = linkPergunta(responder.dataset.responder);
 }, true);
 // O link do formulário é montado no clique, com a página que está aberta naquele momento.
 $('comentar').addEventListener('click', e => { if (SITE && SITE.formulario) e.currentTarget.href = linkComentario(); });
